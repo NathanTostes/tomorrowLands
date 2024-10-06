@@ -35,6 +35,28 @@ class Enemy {
         this.element.style.left = `${x}px`;
         this.element.style.top = `${y}px`;
         gameContainer.appendChild(this.element);
+
+        this.element.addEventListener('click', () => this.hit());
+    }
+
+    hit() {
+        this.life -= 1;
+        if (this.life <= 0) {
+            this.remove();
+        }
+    }
+
+    remove() {
+        const gameContainer = document.getElementById('gameContainer');
+        gameContainer.removeChild(this.element);
+        
+        const index = Enemy.aliveEnemies.indexOf(this);
+        if (index > -1) {
+            Enemy.aliveEnemies.splice(index, 1);
+        }
+
+        Enemy.defeatEnemies++;
+        document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Enemy.defeatEnemies}`;
     }
 
     moveToPlayer(playerDirection) {
