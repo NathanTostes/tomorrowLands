@@ -30,6 +30,7 @@ function collisionChecker() {
             rectPlayer.bottom > rectEnemy.top
         ) {
             Player.takeDamage();
+            enemy.remove()
         }
     });
 }
