@@ -4,7 +4,18 @@ import Enemy from '/classes/Enemy.js';
 Player.create();
 
 function spawnEnemy() {
-    const enemy = new Enemy();
+    const randomValue = Math.random() * 100;
+    let enemyType;
+    
+    if (randomValue > 50) {
+        enemyType = 'enemy1';
+    } else if (randomValue > 30) {
+        enemyType = 'enemy2';
+    } else {
+        enemyType = 'enemy3';
+    }
+
+    const enemy = new Enemy(enemyType);
     Enemy.aliveEnemies.push(enemy);
 }
 

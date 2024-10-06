@@ -1,14 +1,27 @@
+const enemyTypes = {
+    enemy1: { velocity: 2, life: 1 },
+    enemy2: { velocity: 3, life: 1 },
+    enemy3: { velocity: 1, life: 2 }
+};
+
 class Enemy {
     static aliveEnemies = [];
+    static defeatEnemies = 0;
 
-    constructor() {
+    constructor(type) {
+        if (!enemyTypes[type]) {
+            throw new Error(`Tipo de inimigo "${type}" não encontrado.`);
+        }
+
+        const { velocity, life } = enemyTypes[type];
         this.element = document.createElement('div');
         this.element.classList.add('enemy');
+        this.element.id = type;
         
         const gameContainer = document.getElementById('gameContainer');
         const enemySize = parseInt(getComputedStyle(this.element).getPropertyValue('--enemy-size')) || 30;
-        this.velocity = 2;
-        this.life = 1;
+        this.velocity = velocity;
+        this.life = life;
         this.enemySize = enemySize;
         
         let x, y;
