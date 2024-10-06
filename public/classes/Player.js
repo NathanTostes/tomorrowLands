@@ -11,6 +11,7 @@ class Player {
 
     static takeDamage() {
         Player.life -= 1;
+        document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
         if (Player.life <= 0) {
             Player.remove();
         }
