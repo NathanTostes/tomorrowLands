@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: hidden; 
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#player {
+
+    width: 50px;
+    height: 80px; 
+    background-color: blue;
+
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+}
