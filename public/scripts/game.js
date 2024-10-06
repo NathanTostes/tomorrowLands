@@ -8,11 +8,27 @@ function spawnEnemy() {
     Enemy.aliveEnemies.push(enemy);
 }
 
+function collisionChecker() {
+    const rectPlayer = Player.element.getBoundingClientRect();
+    Enemy.aliveEnemies.forEach((enemy) => {
+        const rectEnemy = enemy.element.getBoundingClientRect();
+        if (
+            rectPlayer.left < rectEnemy.right &&
+            rectPlayer.right > rectEnemy.left &&
+            rectPlayer.top < rectEnemy.bottom &&
+            rectPlayer.bottom > rectEnemy.top
+        ) {
+            Player.takeDamage();
+        }
+    });
+}
+
 function gameLoop() {
     const playerRect = Player.element.getBoundingClientRect();
     Enemy.aliveEnemies.forEach((enemy) => {
         enemy.moveToPlayer(playerRect);
     });
+    collisionChecker();
     requestAnimationFrame(gameLoop);
 }
 
