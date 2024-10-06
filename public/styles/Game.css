@@ -37,6 +37,34 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%; 
-    background-color: red;
 
+}
+
+#enemy1 {
+    --enemy-size: 60px;
+    width: 60px;
+    height: 60px;
+    background-color: red;
+}
+
+#enemy2 {
+    --enemy-size: 50px; 
+    width: 50px;
+    height: 50px;
+    background-color: green;
+}
+
+#enemy3 {
+    --enemy-size: 100px; 
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+}
+
+#enemies-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: black;
 }
