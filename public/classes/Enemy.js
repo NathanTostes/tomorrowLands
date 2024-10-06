@@ -6,6 +6,7 @@ const enemyTypes = {
 
 class Enemy {
     static aliveEnemies = [];
+    static defeatEnemies = 0;
 
     constructor(type) {
         if (!enemyTypes[type]) {
@@ -66,6 +67,9 @@ class Enemy {
         if (index > -1) {
             Enemy.aliveEnemies.splice(index, 1);
         }
+
+        Enemy.defeatEnemies++;
+        document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Enemy.defeatEnemies}`;
     }
 
     moveToPlayer(playerDirection) {
