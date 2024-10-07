@@ -9,8 +9,8 @@ class Player {
         gameContainer.appendChild(Player.element);
     }
 
-    static takeDamage() {
-        Player.life -= 1;
+    static takeDamage(damage) {
+        Player.life -= damage;
         document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
         if (Player.life <= 0) {
             Player.remove();

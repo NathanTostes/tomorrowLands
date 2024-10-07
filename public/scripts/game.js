@@ -29,7 +29,7 @@ function collisionChecker() {
             rectPlayer.top < rectEnemy.bottom &&
             rectPlayer.bottom > rectEnemy.top
         ) {
-            Player.takeDamage();
+            Player.takeDamage(enemy.life);
             enemy.remove()
         }
     });
