@@ -1,3 +1,5 @@
+import Round from '/classes/Round.js'
+
 const enemyTypes = {
     enemy1: { velocity: 2, life: 1 },
     enemy2: { velocity: 3, life: 1 },
@@ -56,6 +58,8 @@ class Enemy {
         this.life -= 1;
         if (this.life <= 0) {
             this.remove();
+            // console.log(Enemy.aliveEnemies.length);
+            Round.checkAliveEnemies()
         }
     }
 
@@ -90,6 +94,23 @@ class Enemy {
             this.element.style.top = (rectEnemy.top + moveY) + 'px';
         }
     }
+
+    static spawnEnemy() {
+        const randomValue = Math.random() * 100;
+        let enemyType;
+        
+        if (randomValue > 50) {
+            enemyType = 'enemy1';
+        } else if (randomValue > 30) {
+            enemyType = 'enemy2';
+        } else {
+            enemyType = 'enemy3';
+        }
+    
+        const enemy = new Enemy(enemyType);
+        Enemy.aliveEnemies.push(enemy);
+    }
+
 }
 
 export default Enemy;
