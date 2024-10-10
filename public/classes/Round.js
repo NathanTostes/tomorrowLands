@@ -8,6 +8,7 @@ class Round {
     constructor(roundDifficulty) {
         Round.occurring = true;
         Round.roundEnemies = roundDifficulty * 10;
+        this.roundDifficulty = roundDifficulty
         this.spawnRoundEnemies();
     }
 
@@ -16,7 +17,7 @@ class Round {
             setTimeout(() => {
                 Enemy.spawnEnemy();      
                 Round.spawnedEnemies ++
-            }, i * 1000);
+            }, (i * 1000) / (this.roundDifficulty * 0.5));
         }
     }
         
