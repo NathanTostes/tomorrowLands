@@ -59,7 +59,6 @@ class Enemy {
         if (this.life <= 0) {
             this.remove();
             // console.log(Enemy.aliveEnemies.length);
-            Round.checkAliveEnemies()
         }
     }
 
@@ -74,6 +73,7 @@ class Enemy {
 
         Enemy.defeatEnemies++;
         document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Enemy.defeatEnemies}`;
+        Round.checkAliveEnemies()
     }
 
     moveToPlayer(playerDirection) {

@@ -4,40 +4,29 @@ class Round {
     static occurring = false;
     static currentRound = 1;
     static spawnedEnemies = 0
-    static aux = 0
+    static roundEnemies = 0
     constructor(roundDifficulty) {
         Round.occurring = true;
-        this.roundEnemies = roundDifficulty * 10;
+        Round.roundEnemies = roundDifficulty * 10;
         this.spawnRoundEnemies();
     }
 
     spawnRoundEnemies() {
-        for (let i = 0; i < this.roundEnemies; i++) {
+        for (let i = 0; i < Round.roundEnemies; i++) {
             setTimeout(() => {
-                Enemy.spawnEnemy();
+                Enemy.spawnEnemy();      
                 Round.spawnedEnemies ++
-                Round.aux = this.roundEnemies
-                // console.log(Enemy.aliveEnemies.length);
             }, i * 1000);
         }
     }
         
     static checkAliveEnemies(){
-        console.log(Round.spawnedEnemies); 
-        // console.log(this.roundEnemies);        
-        // console.log(Round.aux);
-        
-        // && Round.spawnedEnemies === Round.roundEnemies
-        if (Enemy.aliveEnemies.length == '0' && Round.spawnedEnemies === Round.aux) {
+        if (Enemy.aliveEnemies.length == '0' && Round.spawnedEnemies === Round.roundEnemies) {
             console.log('é pra rodar o endRound()');
             Round.occurring = false
             this.endRound()
         }
     }
-    // static teste(){
-    //     console.log('teste');
-        
-    // }
     
     static endRound() {
         Round.occurring = false;

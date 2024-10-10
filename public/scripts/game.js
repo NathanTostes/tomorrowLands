@@ -18,7 +18,6 @@ function collisionChecker() {
             Player.takeDamage(enemy.life);
 
             enemy.remove()
-            Round.checkAliveEnemies()
         }
     });
 }
