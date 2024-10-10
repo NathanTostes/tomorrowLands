@@ -38,13 +38,13 @@ class Round {
     static nextRound() {
 
         console.log('rodada iniciando');
-        
-            Round.currentRound++;
-            console.log(`rodada ${Round.currentRound} começano`);
-            new Round(Round.currentRound); //proxima rodada com dificuldade aumentada
-            Round.spawnedEnemies = 0
+        Round.currentRound++;
+        document.getElementById('round-counter').textContent = `Rodada: ${Round.currentRound}`;
+        new Round(Round.currentRound); //proxima rodada com dificuldade aumentada
+        Round.spawnedEnemies = 0
 
     }
+
 }
 
 export default Round;
