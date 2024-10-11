@@ -86,6 +86,12 @@ p {
     left: 10px;
 }
 
+#gold-counter {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+}
+
 #shop{
     position: absolute;
     left: calc(50% - 500px);

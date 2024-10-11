@@ -1,9 +1,10 @@
+import Player from './Player.js';
 import Round from '/classes/Round.js'
 
 const enemyTypes = {
-    enemy1: { velocity: 2, life: 1 },
-    enemy2: { velocity: 3, life: 1 },
-    enemy3: { velocity: 1, life: 2 }
+    enemy1: { velocity: 2, life: 1, gold: 1},
+    enemy2: { velocity: 3, life: 1, gold: 2},
+    enemy3: { velocity: 1, life: 2, gold: 2}
 };
 
 class Enemy {
@@ -74,6 +75,7 @@ class Enemy {
         Enemy.defeatEnemies++;
         document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Enemy.defeatEnemies}`;
         Round.checkAliveEnemies()
+        Player.goldCounter(this.element)
     }
 
     moveToPlayer(playerDirection) {

@@ -3,6 +3,7 @@ const gameContainer = document.getElementById('gameContainer');
 class Player {
     static element = document.createElement('div');
     static life = 10;
+    static gold = 0
 
     static create() {
         Player.element.id = 'player';
@@ -21,6 +22,17 @@ class Player {
         gameContainer.removeChild(Player.element);
         alert("Você foi derrotado!");
     }
+
+    static goldCounter(enemyElement){
+        if (enemyElement.id == 'enemy1') {
+            Player.gold++
+        } else if(enemyElement.id == 'enemy2' || enemyElement.id == 'enemy3'){
+            Player.gold += 2
+        }
+        
+        document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
+    }
+
 }
 
 export default Player;
