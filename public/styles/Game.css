@@ -120,3 +120,14 @@ p {
     border-radius: 10px;
     cursor: pointer;
 }
+
+.shop-item{
+    width: 100px;
+    height: 100px;
+    border: '1px solid gray';
+    margin-left: 5px;
+    padding: '10px';
+    cursor: 'pointer';
+    background-color: gray;
+    text-align: center;
+}
