@@ -85,3 +85,38 @@ p {
     top: 40px;
     left: 10px;
 }
+
+#shop{
+    position: absolute;
+    left: calc(50% - 500px);
+    top: calc(50% - 350px);
+    width: 1000px;
+    height: 700px;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+#shop-title{
+    position: absolute;
+    top: 15px;
+    left: 500px;
+    color: white;
+}
+
+#shop-btnExit{
+    width: 80px;
+    height: 20px;
+    color: white;
+    background-color: gray;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+}

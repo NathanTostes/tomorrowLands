@@ -1,4 +1,5 @@
 import Enemy from '/classes/Enemy.js';
+import Shop from '/classes/Shop.js';
 
 class Round {
     static occurring = false;
@@ -32,7 +33,7 @@ class Round {
     static endRound() {
         Round.occurring = false;
         console.log(`rodada ${Round.currentRound} termino`);
-        setTimeout(() => this.nextRound(), 2000); // delay de 2 segundos pro próximo round. TROCAR PARA A FUNÇÃO DA LOJA
+        setTimeout(() => new Shop(), 2000);
     }
 
     static nextRound() {
