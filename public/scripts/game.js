@@ -21,7 +21,7 @@ function collisionChecker() {
         }
     });
 }
-new Round(1)
+
 
 function gameLoop() {
     const playerRect = Player.element.getBoundingClientRect();
@@ -29,8 +29,8 @@ function gameLoop() {
         enemy.moveToPlayer(playerRect);
     });
     collisionChecker();
-    // Round.teste()
     requestAnimationFrame(gameLoop);
 }
 
+new Round()
 requestAnimationFrame(gameLoop);
