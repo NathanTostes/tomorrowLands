@@ -35,6 +35,7 @@ const shopOptions = {
             
             if (Player.gold < 20) {
                 window.alert('Moedas insuficientes')
+                return;
             }
             Player.loseGold(20)
             Player.purchaseShield()
