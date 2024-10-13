@@ -1,23 +1,9 @@
 import Player from '/classes/Player.js';
 import Enemy from '/classes/Enemy.js';
+import Round from '/classes/Round.js'
 
 Player.create();
 
-function spawnEnemy() {
-    const randomValue = Math.random() * 100;
-    let enemyType;
-    
-    if (randomValue > 50) {
-        enemyType = 'enemy1';
-    } else if (randomValue > 30) {
-        enemyType = 'enemy2';
-    } else {
-        enemyType = 'enemy3';
-    }
-
-    const enemy = new Enemy(enemyType);
-    Enemy.aliveEnemies.push(enemy);
-}
 
 function collisionChecker() {
     const rectPlayer = Player.element.getBoundingClientRect();
@@ -29,11 +15,13 @@ function collisionChecker() {
             rectPlayer.top < rectEnemy.bottom &&
             rectPlayer.bottom > rectEnemy.top
         ) {
-            Player.takeDamage();
+            Player.takeDamage(enemy.life);
+
             enemy.remove()
         }
     });
 }
+
 
 function gameLoop() {
     const playerRect = Player.element.getBoundingClientRect();
@@ -44,5 +32,5 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-setInterval(spawnEnemy, 1000);
+new Round()
 requestAnimationFrame(gameLoop);
