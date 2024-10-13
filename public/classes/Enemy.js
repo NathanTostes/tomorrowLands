@@ -1,30 +1,29 @@
-import Player from '/classes/Player.js';
-import Round from '/classes/Round.js'
+import { loadEnemiesFromJSON } from '/storage/access.js';
+import Player from './Player.js';
+import Round from './Round.js';
 
-const enemyTypes = {
-    enemy1: { velocity: 2, life: 1, gold: 1},
-    enemy2: { velocity: 3, life: 1, gold: 2},
-    enemy3: { velocity: 1, life: 2, gold: 2}
-};
+const gameContainer = document.getElementById('gameContainer');
 
 class Enemy {
+    static types = [];
     static aliveEnemies = [];
     static defeatEnemies = 0;
 
-    constructor(type) {
-        if (!enemyTypes[type]) {
-            throw new Error(`Tipo de inimigo "${type}" não encontrado.`);
-        }
+    static async loadEnemyTypes() {
+        this.types = await loadEnemiesFromJSON();
+    }
 
-        const { velocity, life } = enemyTypes[type];
+    constructor(enemyStatus) {
         this.element = document.createElement('div');
         this.element.classList.add('enemy');
-        this.element.id = type;
+        this.element.id = enemyStatus.type;
         
-        const gameContainer = document.getElementById('gameContainer');
         const enemySize = parseInt(getComputedStyle(this.element).getPropertyValue('--enemy-size')) || 30;
+
+        const { velocity, life, gold } = enemyStatus;
         this.velocity = velocity;
         this.life = life;
+        this.goldValue = gold;
         this.enemySize = enemySize;
         
         let x, y;
@@ -63,9 +62,8 @@ class Enemy {
     }
 
     remove() {
-        const gameContainer = document.getElementById('gameContainer');
         gameContainer.removeChild(this.element);
-        
+
         const index = Enemy.aliveEnemies.indexOf(this);
         if (index > -1) {
             Enemy.aliveEnemies.splice(index, 1);
@@ -73,8 +71,8 @@ class Enemy {
 
         Enemy.defeatEnemies++;
         document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Enemy.defeatEnemies}`;
-        Round.checkAliveEnemies()
-        Player.goldCounter(this.element)
+        Round.checkAliveEnemies();
+        Player.obtainGold(this.goldValue);
     }
 
     moveToPlayer(playerDirection) {
@@ -97,21 +95,12 @@ class Enemy {
     }
 
     static spawnEnemy() {
-        const randomValue = Math.random() * 100;
-        let enemyType;
-        
-        if (randomValue > 50) {
-            enemyType = 'enemy1';
-        } else if (randomValue > 30) {
-            enemyType = 'enemy2';
-        } else {
-            enemyType = 'enemy3';
-        }
-    
+        const randomIndex = Math.floor(Math.random() * Enemy.types.length);
+        const enemyType = Enemy.types[randomIndex];
+
         const enemy = new Enemy(enemyType);
         Enemy.aliveEnemies.push(enemy);
     }
-
 }
 
 export default Enemy;
