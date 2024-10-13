@@ -12,13 +12,11 @@ class Player {
         gameContainer.appendChild(Player.element);
     }
 
-    static purchaseShield(){
-        Player.shield += 2
-    }
-
+    
     static takeDamage(damage) {        
         if (Player.shield > 0) {        
             Player.shield -= damage;
+            document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
         }
         else {
             Player.life -= damage;
@@ -36,6 +34,10 @@ class Player {
     static regenerate() {
         Player.life = 10;
         document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
+    }
+    static purchaseShield(){
+        Player.shield += 2
+        document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
     }
 
     static loseGold(gold) {
