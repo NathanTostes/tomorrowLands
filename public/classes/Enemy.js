@@ -1,4 +1,4 @@
-import Player from './Player.js';
+import Player from '/classes/Player.js';
 import Round from '/classes/Round.js'
 
 const enemyTypes = {
