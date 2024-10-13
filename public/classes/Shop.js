@@ -27,6 +27,19 @@ const shopOptions = {
             Player.regenerate();
         }
     },
+    item3: {
+        value: 20,
+        description: 'Escudo',
+        comprar() {
+            console.log('rodando comprar');
+            
+            if (Player.gold < 20) {
+                window.alert('Moedas insuficientes')
+            }
+            Player.loseGold(20)
+            Player.purchaseShield()
+        }
+    }
 };
 
 

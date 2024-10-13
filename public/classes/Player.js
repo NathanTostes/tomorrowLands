@@ -5,17 +5,27 @@ class Player {
     static life = 10;
     static attack = 1;
     static gold = 0
+    static shield = 0
 
     static create() {
         Player.element.id = 'player';
         gameContainer.appendChild(Player.element);
     }
 
-    static takeDamage(damage) {
-        Player.life -= damage;
-        document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
-        if (Player.life <= 0) {
-            Player.remove();
+    static purchaseShield(){
+        Player.shield += 2
+    }
+
+    static takeDamage(damage) {        
+        if (Player.shield > 0) {        
+            Player.shield -= damage;
+        }
+        else {
+            Player.life -= damage;
+            document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
+            if (Player.life <= 0) {
+                Player.remove();
+            }
         }
     }
 
