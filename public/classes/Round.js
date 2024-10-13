@@ -4,12 +4,13 @@ import Shop from '/classes/Shop.js';
 class Round {
     static occurring = false;
     static currentRound = 1;
-    static spawnedEnemies = 0
-    static roundEnemies = 0
-    constructor(roundDifficulty) {
+    static spawnedEnemies = 0;
+    static roundEnemies = 0;
+
+    constructor() {
         Round.occurring = true;
-        Round.roundEnemies = roundDifficulty * 10;
-        this.roundDifficulty = roundDifficulty
+        Round.spawnedEnemies = 0;
+        Round.roundEnemies = Round.currentRound * 10;
         this.spawnRoundEnemies();
     }
 
@@ -17,14 +18,13 @@ class Round {
         for (let i = 0; i < Round.roundEnemies; i++) {
             setTimeout(() => {
                 Enemy.spawnEnemy();      
-                Round.spawnedEnemies ++
-            }, (i * 1000) / (this.roundDifficulty * 0.5));
+                Round.spawnedEnemies++;
+            }, (i * 1000) / (Round.currentRound * 0.5));
         }
     }
         
     static checkAliveEnemies(){
-        if (Enemy.aliveEnemies.length == '0' && Round.spawnedEnemies === Round.roundEnemies) {
-            console.log('é pra rodar o endRound()');
+        if (Enemy.aliveEnemies.length == 0 && Round.spawnedEnemies === Round.roundEnemies) {
             Round.occurring = false
             this.endRound()
         }
@@ -32,17 +32,14 @@ class Round {
     
     static endRound() {
         Round.occurring = false;
-        console.log(`rodada ${Round.currentRound} termino`);
-        setTimeout(() => new Shop(), 2000);
+        window.alert(`Rodada ${Round.currentRound} finalizada`);
+        setTimeout(() => new Shop(), 1000);
     }
 
     static nextRound() {
-
-        console.log('rodada iniciando');
         Round.currentRound++;
         document.getElementById('round-counter').textContent = `Rodada: ${Round.currentRound}`;
-        new Round(Round.currentRound); //proxima rodada com dificuldade aumentada
-        Round.spawnedEnemies = 0
+        new Round();
 
     }
 
