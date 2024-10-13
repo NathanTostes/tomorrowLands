@@ -16,9 +16,10 @@ class Player {
     static takeDamage(damage) {
 
         if (Player.shield > 0) {
-            if (Player.shield == 1) {
-                Player.shield -= 1
-                Player.life -= 1
+            if (Player.shield < damage) {
+                let damageRemain = damage - Player.shield
+                Player.shield = 0
+                Player.life -= damageRemain
                 document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
                 document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`               
             }else {
