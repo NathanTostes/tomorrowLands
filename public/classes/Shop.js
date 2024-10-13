@@ -1,4 +1,4 @@
-import { loadItemsFromJSON } from '/data/access.js';
+import { loadItemsFromJSON } from '/storage/access.js';
 import Round from '/classes/Round.js';
 
 const gameContainer = document.getElementById('gameContainer');
