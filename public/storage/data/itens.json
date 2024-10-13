@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Poder",
+        "value": 10,
+        "description": "Melhora o ataque",
+        "effect": "improveAtack"
+    },
+    {
+        "name": "Regenerar",
+        "value": 20,
+        "description": "Recupera saúde",
+        "effect": "regenerate"
+    }
+]
