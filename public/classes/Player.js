@@ -28,6 +28,11 @@ class Player {
         document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
     }
 
+    static obtainGold(quantity) {
+        Player.gold += quantity;
+        document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
+    }
+
     static loseGold(gold) {
         Player.gold -= gold;
         document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
@@ -37,17 +42,6 @@ class Player {
         gameContainer.removeChild(Player.element);
         alert("Você foi derrotado!");
     }
-
-    static goldCounter(enemyElement) {
-        if (enemyElement.id == 'enemy1') {
-            Player.gold++
-        } else if (enemyElement.id == 'enemy2' || enemyElement.id == 'enemy3') {
-            Player.gold += 2
-        }
-
-        document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
-    }
-
 }
 
 export default Player;

@@ -33,7 +33,7 @@ class Round {
     static endRound() {
         Round.occurring = false;
         window.alert(`Rodada ${Round.currentRound} finalizada`);
-        setTimeout(() => new Shop(), 1000);
+        setTimeout(() => Shop.initShop(), 1000);
     }
 
     static nextRound() {

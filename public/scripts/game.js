@@ -32,5 +32,6 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
+await Enemy.loadEnemyTypes();
 new Round()
 requestAnimationFrame(gameLoop);
