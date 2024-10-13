@@ -24,6 +24,16 @@ class Player {
         Player.attack = Player.attack + 1;
     }
 
+    static regenerate() {
+        Player.life = 10;
+    }
+
+    static loseGold(gold) {
+        console.log('gold: ', gold, 'Player.gold: ', Player.gold);
+        Player.gold -= gold;
+        document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
+    }
+
     static remove() {
         gameContainer.removeChild(Player.element);
         alert("Você foi derrotado!");

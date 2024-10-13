@@ -1,37 +1,57 @@
+import Player from "./Player.js";
 import Round from "./Round.js";
-const gameContainer = document.getElementById('gameContainer')
+const gameContainer = document.getElementById('gameContainer');
 
 const shopOptions = {
-    item1: {value: 3, description: 'item1'},
-    item2: {value: 5, description: 'item2'},
-}
+    item1: {
+        value: 10,
+        description: 'Poder',
+        comprar() {
+            if(Player.gold < 10) {
+                window.alert('Moedas insuficientes');
+            }
+            Player.loseGold(10);
+            Player.improveAtack();
+        }
+    },
+    item2: { 
+        value: 20, 
+        description: 'Regenerar', 
+        comprar () {
+            if(Player.gold < 20) {
+                window.alert('Moedas insuficientes');
+            }
+            Player.regenerate();
+        }
+    },
+};
 
 
 class Shop {
     constructor() {
-        this.createElements()
+        this.createElements();
     }
 
-    createElements(){
-        this.createElementShop()
-        this.createTitle()
-        this.createButtonExit()
-        this.createShopItems()
+    createElements() {
+        this.createElementShop();
+        this.createTitle();
+        this.createButtonExit();
+        this.createShopItems();
     }
 
-    createElementShop(){
+    createElementShop() {
         this.elementShop = document.createElement('div')
-        this.elementShop.id = 'shop';        
+        this.elementShop.id = 'shop';
         gameContainer.appendChild(this.elementShop);
 
     }
 
     createShopItems() {
- 
         Object.keys(shopOptions).forEach((itemKey) => {
-            const item = shopOptions[itemKey];            
+            const item = shopOptions[itemKey];
             const itemDiv = document.createElement('div');
-            itemDiv.classList.add('shop-item');        
+            itemDiv.addEventListener('click', item.comprar);
+            itemDiv.classList.add('shop-item');
             itemDiv.innerHTML = `<strong>${item.description}</strong><br>Valor: ${item.value}`;
             this.elementShop.appendChild(itemDiv);
         });
@@ -39,24 +59,24 @@ class Shop {
 
 
     createTitle() {
-        const title = document.createElement('p')
-        title.innerHTML = `Loja`
-        title.id = 'shop-title'
-        this.elementShop.appendChild(title)
+        const title = document.createElement('p');
+        title.innerHTML = `Loja`;
+        title.id = 'shop-title';
+        this.elementShop.appendChild(title);
     }
 
     createButtonExit() {
-        const btnExit = document.createElement('div')
-        btnExit.innerHTML = 'Sair'
-        btnExit.id = 'shop-btnExit'
+        const btnExit = document.createElement('div');
+        btnExit.innerHTML = 'Sair';
+        btnExit.id = 'shop-btnExit';
         btnExit.addEventListener('click', () => this.exitShop());
-        this.elementShop.appendChild(btnExit)
+        this.elementShop.appendChild(btnExit);
 
     }
 
     exitShop() {
-        this.elementShop.remove()
-        Round.nextRound()
+        this.elementShop.remove();
+        Round.nextRound();
     }
 
 }
