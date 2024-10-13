@@ -12,3 +12,15 @@ export async function loadItemsFromJSON() {
         return [];
     }
 }
+
+export async function loadEnemiesFromJSON() {
+    try {
+        const response = await fetch('/storage/data/enemies.json');
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error('Erro ao carregar os inimigos do JSON', error);
+        return [];
+    }
+}
