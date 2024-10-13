@@ -52,14 +52,13 @@ class Enemy {
         this.element.style.top = `${y}px`;
         gameContainer.appendChild(this.element);
 
-        this.element.addEventListener('click', () => this.hit());
+        this.element.addEventListener('click', () => this.hit(Player.attack));
     }
 
-    hit() {
-        this.life -= 1;
+    hit(damage) {
+        this.life -= damage;
         if (this.life <= 0) {
             this.remove();
-            // console.log(Enemy.aliveEnemies.length);
         }
     }
 
