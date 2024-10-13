@@ -13,10 +13,18 @@ class Player {
     }
 
     
-    static takeDamage(damage) {        
-        if (Player.shield > 0) {        
-            Player.shield -= damage;
-            document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+    static takeDamage(damage) {
+
+        if (Player.shield > 0) {
+            if (Player.shield == 1) {
+                Player.shield -= 1
+                Player.life -= 1
+                document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+                document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`               
+            }else {
+                Player.shield -= damage;
+                document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+            }
         }
         else {
             Player.life -= damage;
