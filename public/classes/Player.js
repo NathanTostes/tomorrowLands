@@ -20,16 +20,15 @@ class Player {
     }
 
     static improveAtack() {
-        console.log('improveAtack() running');
         Player.attack = Player.attack + 1;
     }
 
     static regenerate() {
         Player.life = 10;
+        document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
     }
 
     static loseGold(gold) {
-        console.log('gold: ', gold, 'Player.gold: ', Player.gold);
         Player.gold -= gold;
         document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
     }

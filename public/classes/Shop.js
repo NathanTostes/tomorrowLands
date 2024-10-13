@@ -9,6 +9,7 @@ const shopOptions = {
         comprar() {
             if(Player.gold < 10) {
                 window.alert('Moedas insuficientes');
+                return;
             }
             Player.loseGold(10);
             Player.improveAtack();
@@ -20,7 +21,9 @@ const shopOptions = {
         comprar () {
             if(Player.gold < 20) {
                 window.alert('Moedas insuficientes');
+                return;
             }
+            Player.loseGold(20);
             Player.regenerate();
         }
     },
