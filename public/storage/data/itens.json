@@ -10,5 +10,11 @@
         "value": 20,
         "description": "Recupera saúde",
         "effect": "regenerate"
+    },
+    {
+        "name": "Torre", 
+        "value": 30,
+        "description": "Constroi uma defesa", 
+        "effect": "construct"
     }
 ]

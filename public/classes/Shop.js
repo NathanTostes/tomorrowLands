@@ -45,11 +45,15 @@ class Shop {
         const btnExit = document.createElement('div');
         btnExit.innerHTML = 'Sair';
         btnExit.id = 'shop-btnExit';
-        btnExit.addEventListener('click', () => this.exitShop());
+        btnExit.addEventListener('click', () => Shop.exitShopAndReturnGame());
         this.elementShop.appendChild(btnExit);
     }
 
     static exitShop() {
+        this.elementShop.remove();
+    }
+
+    static exitShopAndReturnGame() {
         this.elementShop.remove();
         Round.nextRound();
     }

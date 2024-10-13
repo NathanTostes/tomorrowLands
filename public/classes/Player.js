@@ -1,3 +1,6 @@
+import Construct from "/classes/Construction.js";
+import Shop from "/classes/Shop.js";
+
 const gameContainer = document.getElementById('gameContainer');
 
 class Player {
@@ -36,6 +39,11 @@ class Player {
     static loseGold(gold) {
         Player.gold -= gold;
         document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
+    }
+
+    static construct() {
+        Shop.exitShop();
+        Construct.placeTower();
     }
 
     static remove() {
