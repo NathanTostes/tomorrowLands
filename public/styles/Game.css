@@ -101,6 +101,12 @@ p {
     left: 10px;
 }
 
+#playerShield-counter{
+    position: absolute;
+    top: 100px;
+    left: 10px;
+}
+
 #shop{
     position: absolute;
     left: calc(50% - 500px);

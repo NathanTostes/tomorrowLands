@@ -16,5 +16,11 @@
         "value": 30,
         "description": "Constroi uma defesa", 
         "effect": "construct"
+    },
+    {
+        "name": "Escudo",   
+        "value": 20,
+        "description": "Ganha dois escudos",
+        "effect": "purshaseShield"
     }
 ]

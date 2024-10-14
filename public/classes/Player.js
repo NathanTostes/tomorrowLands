@@ -8,17 +8,34 @@ class Player {
     static life = 10;
     static attack = 1;
     static gold = 0
+    static shield = 0
 
     static create() {
         Player.element.id = 'player';
         gameContainer.appendChild(Player.element);
     }
 
+    
     static takeDamage(damage) {
-        Player.life -= damage;
-        document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
-        if (Player.life <= 0) {
-            Player.remove();
+
+        if (Player.shield > 0) {
+            if (Player.shield < damage) {
+                let damageRemain = damage - Player.shield
+                Player.shield = 0
+                Player.life -= damageRemain
+                document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+                document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`               
+            }else {
+                Player.shield -= damage;
+                document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+            }
+        }
+        else {
+            Player.life -= damage;
+            document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
+            if (Player.life <= 0) {
+                Player.remove();
+            }
         }
     }
 
@@ -29,6 +46,10 @@ class Player {
     static regenerate() {
         Player.life = 10;
         document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
+    }
+    static purshaseShield(){
+        Player.shield += 2
+        document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
     }
 
     static obtainGold(quantity) {
