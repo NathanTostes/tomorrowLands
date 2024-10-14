@@ -1,6 +1,7 @@
 import Player from '/classes/Player.js';
 import Enemy from '/classes/Enemy.js';
 import Round from '/classes/Round.js'
+import Construction from '/classes/Construction.js';
 
 Player.create();
 
@@ -29,8 +30,10 @@ function gameLoop() {
         enemy.moveToPlayer(playerRect);
     });
     collisionChecker();
+    Construction.checkCollisions();
     requestAnimationFrame(gameLoop);
 }
 
+await Enemy.loadEnemyTypes();
 new Round()
 requestAnimationFrame(gameLoop);

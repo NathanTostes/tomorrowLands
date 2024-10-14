@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Poder",
+        "value": 10,
+        "description": "Melhora o ataque",
+        "effect": "improveAtack"
+    },
+    {
+        "name": "Regenerar",
+        "value": 20,
+        "description": "Recupera saúde",
+        "effect": "regenerate"
+    },
+    {
+        "name": "Torre", 
+        "value": 30,
+        "description": "Constroi uma defesa", 
+        "effect": "construct"
+    },
+    {
+        "name": "Escudo",   
+        "value": 20,
+        "description": "Ganha dois escudos",
+        "effect": "purshaseShield"
+    }
+]

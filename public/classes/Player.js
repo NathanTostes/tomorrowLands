@@ -1,10 +1,13 @@
+import Construct from "/classes/Construction.js";
+import Shop from "/classes/Shop.js";
+
 const gameContainer = document.getElementById('gameContainer');
 
 class Player {
     static element = document.createElement('div');
     static life = 10;
     static attack = 1;
-    static gold = 0
+    static gold = 1000
     static shield = 0
 
     static create() {
@@ -44,9 +47,14 @@ class Player {
         Player.life = 10;
         document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
     }
-    static purchaseShield(){
+    static purshaseShield(){
         Player.shield += 2
         document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+    }
+
+    static obtainGold(quantity) {
+        Player.gold += quantity;
+        document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
     }
 
     static loseGold(gold) {
@@ -54,21 +62,15 @@ class Player {
         document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
     }
 
+    static construct() {
+        Shop.exitShop();
+        Construct.placeTower();
+    }
+
     static remove() {
         gameContainer.removeChild(Player.element);
         alert("Você foi derrotado!");
     }
-
-    static goldCounter(enemyElement) {
-        if (enemyElement.id == 'enemy1') {
-            Player.gold++
-        } else if (enemyElement.id == 'enemy2' || enemyElement.id == 'enemy3') {
-            Player.gold += 2
-        }
-
-        document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
-    }
-
 }
 
 export default Player;
