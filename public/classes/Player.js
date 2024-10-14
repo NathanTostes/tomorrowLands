@@ -7,7 +7,7 @@ class Player {
     static element = document.createElement('div');
     static life = 10;
     static attack = 1;
-    static gold = 1000
+    static gold = 0
     static shield = 0
 
     static create() {
