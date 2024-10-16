@@ -48,23 +48,30 @@ class Construction {
     }
 
     static checkCollisions() {
-        Construction.towers.forEach((tower) => {
-            Enemy.aliveEnemies.forEach((enemy) => {
+        for (let i = Construction.towers.length - 1; i >= 0; i--) {
+            const tower = Construction.towers[i];
+            
+            for (let j = Enemy.aliveEnemies.length - 1; j >= 0; j--) {
+                const enemy = Enemy.aliveEnemies[j];
+                
                 const enemyRect = enemy.element.getBoundingClientRect();
                 const towerRect = tower.element.getBoundingClientRect();
-
+    
                 if (tower.isColliding(towerRect, enemyRect)) {
                     tower.collisions++;
                     enemy.hit(1);
+    
                     if (tower.collisions >= tower.maxCollisions) {
-                        Construction.towers.splice(tower, 1);
+                        
+                        Construction.towers.splice(i, 1);
                         tower.destroy();
+                        break;  
                     }
                 }
-            })
-        })
+            }
+        }
     }
-
+    
 
     isColliding(rect1, rect2) {
         return !(rect1.right < rect2.left ||
