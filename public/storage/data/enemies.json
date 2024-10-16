@@ -16,5 +16,11 @@
         "velocity": 1,
         "life": 3,
         "gold": 2
+    },
+    {
+        "type": "enemy4",
+        "velocity": 0.5,
+        "life": 5,
+        "gold": 5
     }
 ]
