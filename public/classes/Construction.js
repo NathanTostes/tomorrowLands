@@ -57,7 +57,7 @@ class Construction {
                     tower.collisions++;
                     enemy.hit(1);
                     if (tower.collisions >= tower.maxCollisions) {
-                        Construction.towers.pop(tower);
+                        Construction.towers.splice(tower, 1);
                         tower.destroy();
                     }
                 }
