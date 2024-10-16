@@ -95,11 +95,42 @@ class Enemy {
     }
 
     static spawnEnemy() {
-        const randomIndex = Math.floor(Math.random() * Enemy.types.length);
-        const enemyType = Enemy.types[randomIndex];
+        let randomIndex = Math.floor(Math.random() * 100);
+        let accumulatedChance = 0
 
-        const enemy = new Enemy(enemyType);
-        Enemy.aliveEnemies.push(enemy);
+        for (const element of Enemy.types) {
+            
+            accumulatedChance += element.spawn
+
+            if (accumulatedChance > randomIndex) {
+                console.log(accumulatedChance);
+                let enemyType = element;
+                
+                console.log(enemyType);
+                
+                const enemy = new Enemy(enemyType);
+                Enemy.aliveEnemies.push(enemy);
+                break;  
+            }
+        }
+
+
+
+
+        // Enemy.types.forEach(element => {
+        //     if (element.spawn > randomIndex) {
+        //         console.log(element.spawn);
+        //         let enemyType = element
+
+        //         console.log(enemyType);
+                
+        //         const enemy = new Enemy(enemyType);
+        //         Enemy.aliveEnemies.push(enemy);
+        //         return
+        //     }
+        // });
+
+
     }
 }
 

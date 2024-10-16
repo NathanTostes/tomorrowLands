@@ -3,24 +3,28 @@
         "type": "enemy1",
         "velocity": 2,
         "life": 2,
-        "gold": 1
+        "gold": 1,
+        "spawn": 40        
     },
     {
         "type": "enemy2",
         "velocity": 3,
         "life": 1,
-        "gold": 2
+        "gold": 2,
+        "spawn": 30
     },
     {
         "type": "enemy3",
         "velocity": 1,
         "life": 3,
-        "gold": 2
+        "gold": 2,
+        "spawn": 20
     },
     {
         "type": "enemy4",
         "velocity": 0.5,
         "life": 5,
-        "gold": 5
+        "gold": 5,
+        "spawn": 10
     }
 ]
