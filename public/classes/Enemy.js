@@ -13,7 +13,7 @@ class Enemy {
         this.types = await loadEnemiesFromJSON();
     }
 
-    constructor(enemyStatus) {
+    constructor(enemyStatus, roundDifficult) {
         this.element = document.createElement('div');
         this.element.classList.add('enemy');
         this.element.id = enemyStatus.type;
@@ -22,7 +22,7 @@ class Enemy {
 
         const { velocity, life, gold } = enemyStatus;
         this.velocity = velocity;
-        this.life = life;
+        this.life = life + roundDifficult;
         this.goldValue = gold;
         this.enemySize = enemySize;
         
@@ -94,7 +94,7 @@ class Enemy {
         }
     }
 
-    static spawnEnemy() {
+    static spawnEnemy(roundDifficult) {
         let randomIndex = Math.floor(Math.random() * 100);
         let accumulatedChance = 0
 
@@ -103,34 +103,14 @@ class Enemy {
             accumulatedChance += element.spawn
 
             if (accumulatedChance > randomIndex) {
-                console.log(accumulatedChance);
                 let enemyType = element;
                 
-                console.log(enemyType);
                 
-                const enemy = new Enemy(enemyType);
+                const enemy = new Enemy(enemyType, roundDifficult);
                 Enemy.aliveEnemies.push(enemy);
                 break;  
             }
         }
-
-
-
-
-        // Enemy.types.forEach(element => {
-        //     if (element.spawn > randomIndex) {
-        //         console.log(element.spawn);
-        //         let enemyType = element
-
-        //         console.log(enemyType);
-                
-        //         const enemy = new Enemy(enemyType);
-        //         Enemy.aliveEnemies.push(enemy);
-        //         return
-        //     }
-        // });
-
-
     }
 }
 
