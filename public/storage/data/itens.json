@@ -22,5 +22,11 @@
         "value": 20,
         "description": "Ganha dois escudos",
         "effect": "purshaseShield"
+    },
+    {
+        "name": "Gelo",   
+        "value": 1,
+        "description": "Paralisa os inimigos",
+        "effect": "purshaseFrozen"
     }
 ]

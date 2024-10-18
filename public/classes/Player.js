@@ -1,5 +1,6 @@
 import Construct from "/classes/Construction.js";
 import Shop from "/classes/Shop.js";
+import Enemy from "/Classes/Enemy.js";
 
 const gameContainer = document.getElementById('gameContainer');
 
@@ -9,7 +10,7 @@ class Player {
     static attack = 1;
     static gold = 0
     static shield = 0
-
+    static freze = 0
     static create() {
         Player.element.id = 'player';
         gameContainer.appendChild(Player.element);
@@ -50,6 +51,11 @@ class Player {
     static purshaseShield(){
         Player.shield += 2
         document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+    }
+
+    static purshaseFrozen(){
+        Player.freze += 1
+        //adicionar um contador        
     }
 
     static obtainGold(quantity) {
