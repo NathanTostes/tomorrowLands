@@ -6,17 +6,14 @@ const gameContainer = document.getElementById('gameContainer');
 
 class Boss {
     static types = [];
-    static aliveEnemies = [];
+    static aliveBoss = [];
     static defeatEnemies = 0;
 
     static async loadBossesTypes() {
         Boss.types = await loadBossesFromJSON();
     }
 
-    constructor(bossStatus, roundDifficult) {
-
-        console.log(bossStatus);
-        
+    constructor(bossStatus, roundDifficult) {       
 
         this.element = document.createElement('div');
         this.element.classList.add('boss');
@@ -66,17 +63,14 @@ class Boss {
         if (this.life <= 0) {
             this.remove();
         }
-        console.log(this.life);
-        
-
     }
 
     remove() {
         gameContainer.removeChild(this.element);
 
-        const index = Boss.aliveEnemies.indexOf(this);
+        const index = Boss.aliveBoss.indexOf(this);
         if (index > -1) {
-            Boss.aliveEnemies.splice(index, 1);
+            Boss.aliveBoss.splice(index, 1);
         }
 
         Boss.defeatEnemies++;
@@ -108,19 +102,10 @@ class Boss {
 
         let bossType = Math.floor(Math.random() * Boss.types.length)
 
-        console.log(bossType);
-
-
-        bossType = Boss.types[bossType]
-
-        console.log("spawno boss");
-        console.log(bossType);
-        
-        
+        bossType = Boss.types[bossType]      
 
         const boss = new Boss(bossType, roundDifficult);
-        Boss.aliveEnemies.push(boss);
-        
+        Boss.aliveBoss.push(boss);
     }
 }
 

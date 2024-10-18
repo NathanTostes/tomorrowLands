@@ -9,6 +9,7 @@ class Round {
     static spawnedEnemies = 0;
     static roundEnemies = 0;
     static roundDifficult = 0
+    static bossRound = 1
 
     constructor() {
         Round.occurring = true;
@@ -16,8 +17,11 @@ class Round {
         Round.roundEnemies = Round.currentRound * 10;
 
         if (Round.currentRound % 5 == 0) {
-            Round.roundDifficult += 1            
+            Round.roundDifficult += 1
             //adiciona um de vida nos inimigos a cada 5 rounds 
+        }
+        if (Round.currentRound % 10 == 0) {
+            Round.bossRound ++
         }
 
         this.spawnRoundEnemies();
@@ -29,7 +33,9 @@ class Round {
                 Enemy.spawnEnemy(Round.roundDifficult);      
                 
                 if (Round.spawnedEnemies == Round.roundEnemies/2) {
-                    Boss.spawnBoss(Round.roundDifficult)               
+                    for(let i = 0; i < Round.bossRound; i++){
+                        Boss.spawnBoss(Round.roundDifficult)               
+                    }
                 }
                 
                 Round.spawnedEnemies++;
@@ -38,7 +44,7 @@ class Round {
     }
         
     static checkAliveEnemies(){
-        if (Enemy.aliveEnemies.length == 0 && Round.spawnedEnemies === Round.roundEnemies && Boss.aliveEnemies.length == 0) {
+        if (Enemy.aliveEnemies.length == 0 && Round.spawnedEnemies === Round.roundEnemies && Boss.aliveBoss.length == 0) {
             Round.occurring = false
             this.endRound()
         }

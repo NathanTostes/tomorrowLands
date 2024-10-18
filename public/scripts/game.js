@@ -24,7 +24,7 @@ function collisionChecker() {
 
         
     });
-    Boss.aliveEnemies.forEach((boss) => {
+    Boss.aliveBoss.forEach((boss) => {
         const rectBoss = boss.element.getBoundingClientRect();
         if (
             rectPlayer.left < rectBoss.right &&
@@ -45,7 +45,7 @@ function gameLoop() {
     Enemy.aliveEnemies.forEach((enemy) => {
         enemy.moveToPlayer(playerRect);
     });
-    Boss.aliveEnemies.forEach((boss)=>{
+    Boss.aliveBoss.forEach((boss)=>{
         boss.moveToPlayer(playerRect)
     })
     collisionChecker();
