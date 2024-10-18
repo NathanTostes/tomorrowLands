@@ -8,6 +8,7 @@ class Enemy {
     static types = [];
     static aliveEnemies = [];
     static defeatEnemies = 0;
+    static frozedActivated = false
 
     static async loadEnemyTypes() {
         this.types = await loadEnemiesFromJSON();
@@ -26,6 +27,8 @@ class Enemy {
         this.goldValue = gold;
         this.enemySize = enemySize;
         
+        this.isFrozen = false
+
         let x, y;
         const spawnDirection = Math.floor(Math.random() * 4);
         switch (spawnDirection) {
@@ -76,6 +79,10 @@ class Enemy {
     }
 
     moveToPlayer(playerDirection) {
+        if (this.isFrozen){
+            return
+        }; 
+
         const rectEnemy = this.element.getBoundingClientRect();
         const enemyCenterX = rectEnemy.left + rectEnemy.width / 2;
         const enemyCenterY = rectEnemy.top + rectEnemy.height / 2;
@@ -99,6 +106,11 @@ class Enemy {
         const enemyType = Enemy.types[randomIndex];
 
         const enemy = new Enemy(enemyType);
+        
+        if (Enemy.frozedActivated) {
+            enemy.isFrozen = true
+        }
+
         Enemy.aliveEnemies.push(enemy);
     }
 }

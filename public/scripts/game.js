@@ -4,6 +4,7 @@ import Round from '/classes/Round.js'
 import Construction from '/classes/Construction.js';
 
 Player.create();
+console.log(Player.freze);
 
 
 function collisionChecker() {
@@ -23,6 +24,24 @@ function collisionChecker() {
     });
 }
 
+function freezeEnemies() {
+
+    if (Enemy.frozedActivated == false) {        
+        Enemy.frozedActivated = true;
+        Enemy.aliveEnemies.forEach(enemy => {
+            enemy.isFrozen = true; // paralisar cada inimigo
+        });
+        setTimeout(() => {
+            Enemy.aliveEnemies.forEach(enemy => {
+                enemy.isFrozen = false; // desparalizar cada inimigo
+                
+            });
+            Enemy.frozedActivated= false;
+        }, 5000); // 5s paralisado
+    }
+}
+
+
 
 function gameLoop() {
     const playerRect = Player.element.getBoundingClientRect();
@@ -37,3 +56,17 @@ function gameLoop() {
 await Enemy.loadEnemyTypes();
 new Round()
 requestAnimationFrame(gameLoop);
+
+//verificar se o espaço está sendo pressionado
+
+window.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') { 
+        
+        if (Player.freze > 0) {
+            freezeEnemies()
+            Player.freze --
+            console.log(Player.freze);
+            
+        }        
+    }
+});
