@@ -171,3 +171,25 @@ p {
     border: 2px solid black;
     border-radius: 5px;
 }
+
+
+.boss{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+}
+
+#boss1{
+    --boss-size: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+#boss2{
+    --boss-size: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}

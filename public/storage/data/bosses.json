@@ -1,0 +1,14 @@
+[
+    {
+        "type": "boss1",
+        "velocity": 1,
+        "life": 10,
+        "gold": 10
+    },
+    {
+        "type": "boss2",
+        "velocity":1,
+        "life": 10,
+        "gold": 10
+    }
+]

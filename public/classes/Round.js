@@ -1,5 +1,7 @@
 import Enemy from '/classes/Enemy.js';
+import Boss from "/classes/Boss.js";
 import Shop from '/classes/Shop.js';
+
 
 class Round {
     static occurring = false;
@@ -20,18 +22,23 @@ class Round {
 
         this.spawnRoundEnemies();
     }
-
+    
     spawnRoundEnemies() {
         for (let i = 0; i < Round.roundEnemies; i++) {
             setTimeout(() => {
                 Enemy.spawnEnemy(Round.roundDifficult);      
+                
+                if (Round.spawnedEnemies == Round.roundEnemies/2) {
+                    Boss.spawnBoss(Round.roundDifficult)               
+                }
+                
                 Round.spawnedEnemies++;
             }, (i * 1000) / (Round.currentRound * 0.5));
         }
     }
         
     static checkAliveEnemies(){
-        if (Enemy.aliveEnemies.length == 0 && Round.spawnedEnemies === Round.roundEnemies) {
+        if (Enemy.aliveEnemies.length == 0 && Round.spawnedEnemies === Round.roundEnemies && Boss.aliveEnemies.length == 0) {
             Round.occurring = false
             this.endRound()
         }
