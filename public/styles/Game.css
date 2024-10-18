@@ -181,9 +181,9 @@ p {
 }
 
 #boss1{
-    --boss-size: 100px;
-    width: 100px;
-    height: 100px;
+    --boss-size: 120px;
+    width: 120px;
+    height: 120px;
     background-color: yellow;
 }
 

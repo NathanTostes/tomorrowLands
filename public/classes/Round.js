@@ -34,7 +34,7 @@ class Round {
                 
                 if (Round.spawnedEnemies == Round.roundEnemies/2) {
                     for(let i = 0; i < Round.bossRound; i++){
-                        Boss.spawnBoss(Round.roundDifficult)               
+                        Boss.spawnBoss(Round.roundDifficult)         
                     }
                 }
                 

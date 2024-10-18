@@ -112,6 +112,15 @@ class Enemy {
             }
         }
     }
+
+    static spawnEnemyNearPosition(x, y) {
+        const enemy = new Enemy(Enemy.types[Math.floor(Math.random() * Enemy.types.length)], Round.roundDifficult);
+    
+        enemy.element.style.left = `${x}px`;
+        enemy.element.style.top = `${y}px`;
+    
+        Enemy.aliveEnemies.push(enemy);
+    }
 }
 
 export default Enemy;

@@ -1,6 +1,7 @@
 import { loadBossesFromJSON } from '/storage/access.js';
 import Player from './Player.js';
 import Round from './Round.js';
+import Enemy from './Enemy.js';
 
 const gameContainer = document.getElementById('gameContainer');
 
@@ -54,7 +55,9 @@ class Boss {
 
         this.element.addEventListener('click', () => this.hit(Player.attack));
 
-        
+        if (bossStatus.type === 'boss1') {
+            this.spawnEnemiesOverTime();
+        }
 
     }
 
@@ -67,6 +70,7 @@ class Boss {
 
     remove() {
         gameContainer.removeChild(this.element);
+        this.stopSpawningEnemies()
 
         const index = Boss.aliveBoss.indexOf(this);
         if (index > -1) {
@@ -107,6 +111,23 @@ class Boss {
         const boss = new Boss(bossType, roundDifficult);
         Boss.aliveBoss.push(boss);
     }
+
+    spawnEnemiesOverTime() {
+
+        this.spawnInterval = setInterval(() => {
+            
+                const bossX = parseFloat(this.element.style.left);
+                const bossY = parseFloat(this.element.style.top);
+                for (let i = 0; i < 2; i++) {
+                    Enemy.spawnEnemyNearPosition(bossX, bossY);
+                }
+            }, 2000);
+    }
+
+    stopSpawningEnemies() {
+        clearInterval(this.spawnInterval);
+    }
+
 }
 
 export default Boss;
