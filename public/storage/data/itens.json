@@ -25,7 +25,7 @@
     },
     {
         "name": "Gelo",   
-        "value": 1,
+        "value": 50,
         "description": "Paralisa os inimigos",
         "effect": "purshaseFrozen"
     }

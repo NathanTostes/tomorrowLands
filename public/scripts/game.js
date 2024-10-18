@@ -4,8 +4,6 @@ import Round from '/classes/Round.js'
 import Construction from '/classes/Construction.js';
 
 Player.create();
-console.log(Player.freze);
-
 
 function collisionChecker() {
     const rectPlayer = Player.element.getBoundingClientRect();
@@ -65,8 +63,7 @@ window.addEventListener('keydown', (event) => {
         if (Player.freze > 0) {
             freezeEnemies()
             Player.freze --
-            console.log(Player.freze);
-            
+            document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`
         }        
     }
 });

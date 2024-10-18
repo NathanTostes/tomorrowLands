@@ -107,6 +107,12 @@ p {
     left: 10px;
 }
 
+#playerFreeze-counter{
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
 #shop{
     position: absolute;
     left: calc(50% - 500px);

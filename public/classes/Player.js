@@ -55,7 +55,7 @@ class Player {
 
     static purshaseFrozen(){
         Player.freze += 1
-        //adicionar um contador        
+        document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`
     }
 
     static obtainGold(quantity) {
