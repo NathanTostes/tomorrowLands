@@ -7,8 +7,8 @@
     },
     {
         "type": "boss2",
-        "velocity":1,
-        "life": 10,
+        "velocity":0.3,
+        "life": 30,
         "gold": 10
     }
 ]
