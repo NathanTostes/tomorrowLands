@@ -6,7 +6,6 @@ import Construction from '/classes/Construction.js';
 
 Player.create();
 
-
 function collisionChecker() {
     const rectPlayer = Player.element.getBoundingClientRect();
     Enemy.aliveEnemies.forEach((enemy) => {
@@ -39,6 +38,24 @@ function collisionChecker() {
     })
 }
 
+function freezeEnemies() {
+
+    if (Enemy.frozedActivated == false) {        
+        Enemy.frozedActivated = true;
+        Enemy.aliveEnemies.forEach(enemy => {
+            enemy.isFrozen = true; // paralisar cada inimigo
+        });
+        setTimeout(() => {
+            Enemy.aliveEnemies.forEach(enemy => {
+                enemy.isFrozen = false; // desparalizar cada inimigo
+                
+            });
+            Enemy.frozedActivated= false;
+        }, 5000); // 5s paralisado
+    }
+}
+
+
 
 function gameLoop() {
     const playerRect = Player.element.getBoundingClientRect();
@@ -57,3 +74,16 @@ await Enemy.loadEnemyTypes();
 await Boss.loadBossesTypes();
 new Round()
 requestAnimationFrame(gameLoop);
+
+//verificar se o espaço está sendo pressionado
+
+window.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') { 
+        
+        if (Player.freze > 0) {
+            freezeEnemies()
+            Player.freze --
+            document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`
+        }        
+    }
+});
