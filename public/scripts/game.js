@@ -31,7 +31,7 @@ function collisionChecker() {
             rectPlayer.top < rectBoss.bottom &&
             rectPlayer.bottom > rectBoss.top
         ) {
-            Player.takeDamage(boss.life);
+            Player.takeDamage(boss.damage);
 
             boss.remove()
         }

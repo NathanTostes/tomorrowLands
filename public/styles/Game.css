@@ -199,3 +199,10 @@ p {
     height: 100px;
     background-color: black;
 }
+
+#boss3{
+    --boss-size: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}

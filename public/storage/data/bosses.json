@@ -3,12 +3,21 @@
         "type": "boss1",
         "velocity": 0.5,
         "life": 10,
-        "gold": 10
+        "gold": 10,
+        "damage": 10
     },
     {
         "type": "boss2",
         "velocity":0.3,
         "life": 30,
-        "gold": 10
+        "gold": 10,
+        "damage": 30
+    },
+    {
+        "type": "boss3",
+        "velocity": 8,
+        "life": 1,
+        "gold": 10,
+        "damage": 5
     }
 ]

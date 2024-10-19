@@ -22,11 +22,12 @@ class Boss {
         
         const bossSize = parseInt(getComputedStyle(this.element).getPropertyValue('--boss-size')) || 30;
 
-        const {velocity, life, gold} = bossStatus;
+        const {velocity, life, gold, damage} = bossStatus;
         this.velocity = velocity;
         this.life = life + roundDifficult;
         this.goldValue = gold;
         this.bossSize = bossSize;
+        this.damage = damage
         
         let x, y;
         const spawnDirection = Math.floor(Math.random() * 4);
