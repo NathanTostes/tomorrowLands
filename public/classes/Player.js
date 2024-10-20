@@ -9,9 +9,11 @@ class Player {
     static element = document.createElement('div');
     static life = 10;
     static attack = 1;
-    static gold = 0
+    static gold = 1000
     static shield = 0
     static freze = 0
+    static kazakhstanBomb = 1
+
     static create() {
         Player.element.id = 'player';
         gameContainer.appendChild(Player.element);
@@ -61,6 +63,11 @@ class Player {
         Player.freze += 1
         document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`
         Shop.refresh();
+    }
+
+    static purshasekazakhstanBomb(){
+        Player.kazakhstanBomb += 1
+        Shop.refresh()
     }
     
     static construct() {

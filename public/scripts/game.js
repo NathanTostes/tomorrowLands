@@ -55,6 +55,18 @@ function freezeEnemies() {
     }
 }
 
+function kazakhstanBomb() {
+    console.log(Enemy.aliveEnemies);
+    
+    Enemy.aliveEnemies.forEach(enemy => {
+        enemy.remove();
+    });
+
+    Boss.aliveBoss.forEach(boss => {
+        boss.remove();
+    });
+}
+
 
 
 function gameLoop() {
@@ -80,6 +92,18 @@ window.addEventListener('keydown', (event) => {
     if (event.code === 'Space') { 
         if (Player.freze > 0) {
             freezeEnemies();
+        }        
+    }
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.code === 'Enter') { 
+        console.log(Enemy.aliveEnemies);
+        
+        if (Player.kazakhstanBomb > 0) {
+            
+            kazakhstanBomb();
+            Player.kazakhstanBomb--
         }        
     }
 });
