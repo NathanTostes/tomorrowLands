@@ -1,31 +1,31 @@
 [
     {
         "name": "Poder",
-        "value": 10,
+        "value": 2,
         "description": "Melhora o ataque",
         "effect": "improveAtack"
     },
     {
         "name": "Regenerar",
-        "value": 20,
+        "value": 4,
         "description": "Recupera saúde",
         "effect": "regenerate"
     },
     {
         "name": "Torre", 
-        "value": 30,
+        "value": 20,
         "description": "Constroi uma defesa", 
         "effect": "construct"
     },
     {
         "name": "Escudo",   
-        "value": 20,
+        "value": 10,
         "description": "Ganha dois escudos",
         "effect": "purshaseShield"
     },
     {
         "name": "Gelo",   
-        "value": 50,
+        "value": 25,
         "description": "Paralisa os inimigos",
         "effect": "purshaseFrozen"
     }
