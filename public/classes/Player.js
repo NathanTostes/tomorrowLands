@@ -41,22 +41,31 @@ class Player {
 
     static improveAtack() {
         Player.attack = Player.attack + 1;
+        Shop.refresh();
     }
 
     static regenerate() {
         Player.life = 10;
         document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
+        Shop.refresh();
     }
     static purshaseShield(){
         Player.shield += 2
         document.getElementById('playerShield-counter').textContent = `Escudo: ${Player.shield}`
+        Shop.refresh();
     }
 
     static purshaseFrozen(){
         Player.freze += 1
         document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`
+        Shop.refresh();
     }
-
+    
+    static construct() {
+        Shop.exitShop();
+        Construct.placeTower();
+    }
+    
     static obtainGold(quantity) {
         Player.gold += quantity;
         document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
@@ -65,11 +74,6 @@ class Player {
     static loseGold(gold) {
         Player.gold -= gold;
         document.getElementById('gold-counter').textContent = `Ouro: ${Player.gold}`;
-    }
-
-    static construct() {
-        Shop.exitShop();
-        Construct.placeTower();
     }
 
     static remove() {

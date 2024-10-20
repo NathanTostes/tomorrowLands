@@ -1,4 +1,6 @@
 import Player from "/classes/Player.js";
+import Construction from "/classes/Construction.js";
+import Shop from "/classes/Shop.js";
 
 class Item {
     constructor(name, value, description, effect) {
@@ -6,6 +8,23 @@ class Item {
         this.value = value;
         this.description = description;
         this.effect = effect;
+    }
+
+    static getIncreased(itemName) {
+        switch (itemName) {
+            case 'Poder':
+                return Player.attack;
+            case 'Regenerar':
+                return 1;
+            case 'Torre':
+                return Construction.towers.length + 1;
+            case 'Escudo':
+                return 1;
+            case 'Gelo':
+                return Player.freze + 1;
+            default:
+                return 0;
+        }
     }
 
     comprar() {

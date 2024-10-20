@@ -27,10 +27,13 @@ class Shop {
     static createShopItems() {
         this.items.forEach((item) => {
             const itemDiv = document.createElement('div');
-            itemDiv.addEventListener('click', () => item.comprar());
             itemDiv.classList.add('shop-item');
             itemDiv.innerHTML = `<strong>${item.description}</strong><br>Valor: ${item.value}`;
             this.elementShop.appendChild(itemDiv);
+            itemDiv.addEventListener('click', () => {
+                    item.comprar();
+                }
+            );
         });
     }
 
@@ -51,6 +54,11 @@ class Shop {
 
     static exitShop() {
         this.elementShop.remove();
+    }
+
+    static refresh() {
+        this.exitShop();
+        this.initShop();
     }
 
     static exitShopAndReturnGame() {
