@@ -9,9 +9,15 @@
 <body>
     <div class="container">
         <h1>Bem-vindo a Tomorrow Lands</h1>
-        <br>
         <img src="/images/example" alt="Logo do TomorrowLands" class="logo">
+        
+        <% if (lastRound > 0 && defeatedEnemies > 0) { %>
+            <p>Rodada alcançada: <%= lastRound %></p>
+            <p>Inimigos derrotados: <%= defeatedEnemies %></p>
+        <% } %>
+
         <br>
+        
         <button id="start-game">Iniciar Jogo</button>
     </div>
 

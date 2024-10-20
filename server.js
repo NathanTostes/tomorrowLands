@@ -14,7 +14,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.render('home', { title: 'Tela Inicial - Tomorrow Lands' });
+    const lastRound = req.query.round || 0;
+    const defeatedEnemies = req.query.enemies || 0;
+
+    res.render('home', { 
+        title: 'Tela Inicial - Tomorrow Lands', 
+        lastRound, 
+        defeatedEnemies 
+    });
 });
 
 app.get('/game', (req, res) => {
