@@ -1,6 +1,6 @@
 import { loadEnemiesFromJSON } from '/storage/access.js';
-import Player from './Player.js';
-import Round from './Round.js';
+import Player from '/classes/Player.js';
+import Round from '/classes/Round.js';
 
 const gameContainer = document.getElementById('gameContainer');
 
@@ -14,7 +14,7 @@ class Enemy {
         this.types = await loadEnemiesFromJSON();
     }
 
-    constructor(enemyStatus) {
+    constructor(enemyStatus, roundDifficult) {
         this.element = document.createElement('div');
         this.element.classList.add('enemy');
         this.element.id = enemyStatus.type;
@@ -23,7 +23,7 @@ class Enemy {
 
         const { velocity, life, gold } = enemyStatus;
         this.velocity = velocity;
-        this.life = life;
+        this.life = life + roundDifficult;
         this.goldValue = gold;
         this.enemySize = enemySize;
         
@@ -101,16 +101,31 @@ class Enemy {
         }
     }
 
-    static spawnEnemy() {
-        const randomIndex = Math.floor(Math.random() * Enemy.types.length);
-        const enemyType = Enemy.types[randomIndex];
+    static spawnEnemy(roundDifficult) {
+        let randomIndex = Math.floor(Math.random() * 100);
+        let accumulatedChance = 0
 
-        const enemy = new Enemy(enemyType);
-        
-        if (Enemy.frozedActivated) {
-            enemy.isFrozen = true
+        for (const element of Enemy.types) {
+            
+            accumulatedChance += element.spawn
+
+            if (accumulatedChance > randomIndex) {
+                let enemyType = element;
+                
+                
+                const enemy = new Enemy(enemyType, roundDifficult);
+                Enemy.aliveEnemies.push(enemy);
+                break;  
+            }
         }
+    }
 
+    static spawnEnemyNearPosition(x, y) {
+        const enemy = new Enemy(Enemy.types[Math.floor(Math.random() * Enemy.types.length)], Round.roundDifficult);
+    
+        enemy.element.style.left = `${x}px`;
+        enemy.element.style.top = `${y}px`;
+    
         Enemy.aliveEnemies.push(enemy);
     }
 }

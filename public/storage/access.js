@@ -24,3 +24,15 @@ export async function loadEnemiesFromJSON() {
         return [];
     }
 }
+
+export async function loadBossesFromJSON() {
+    try {
+        const response = await fetch('/storage/data/bosses.json');
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error('Erro ao carregar os bosses do JSON', error);
+        return [];
+    }
+}

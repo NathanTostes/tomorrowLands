@@ -61,6 +61,13 @@ body {
     background-color: purple;
 }
 
+#enemy4 {
+    --enemy-size: 120px; 
+    width: 120px;
+    height: 120px;
+    background-color: chocolate;
+}
+
 .tower {
     width: 50px;
     height: 50px;
@@ -169,4 +176,33 @@ p {
     font-size: 18px;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+
+.boss{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+}
+
+#boss1{
+    --boss-size: 120px;
+    width: 120px;
+    height: 120px;
+    background-color: yellow;
+}
+
+#boss2{
+    --boss-size: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+#boss3{
+    --boss-size: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
 }
