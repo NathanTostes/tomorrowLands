@@ -39,19 +39,19 @@ function collisionChecker() {
 }
 
 function freezeEnemies() {
-
-    if (Enemy.frozedActivated == false) {        
+    if (Enemy.frozedActivated === false) {
+        Player.freze--;
+        document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`;      
         Enemy.frozedActivated = true;
         Enemy.aliveEnemies.forEach(enemy => {
-            enemy.isFrozen = true; // paralisar cada inimigo
+            enemy.isFrozen = true;
         });
         setTimeout(() => {
             Enemy.aliveEnemies.forEach(enemy => {
-                enemy.isFrozen = false; // desparalizar cada inimigo
-                
+                enemy.isFrozen = false;
             });
-            Enemy.frozedActivated= false;
-        }, 5000); // 5s paralisado
+            Enemy.frozedActivated = false;
+        }, 5000);
     }
 }
 
@@ -75,15 +75,11 @@ await Boss.loadBossesTypes();
 new Round()
 requestAnimationFrame(gameLoop);
 
-//verificar se o espaço está sendo pressionado
 
 window.addEventListener('keydown', (event) => {
     if (event.code === 'Space') { 
-        
         if (Player.freze > 0) {
-            freezeEnemies()
-            Player.freze --
-            document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`
+            freezeEnemies();
         }        
     }
 });

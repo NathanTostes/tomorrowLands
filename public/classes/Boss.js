@@ -14,7 +14,8 @@ class Boss {
         Boss.types = await loadBossesFromJSON();
     }
 
-    constructor(bossStatus, roundDifficult) {       
+    constructor(bossStatus, currentRound) {     
+        const roundDifficult = 0.8 + currentRound * 0.2;
 
         this.element = document.createElement('div');
         this.element.classList.add('boss');
@@ -24,7 +25,7 @@ class Boss {
 
         const {velocity, life, gold, damage} = bossStatus;
         this.velocity = velocity;
-        this.life = life + roundDifficult;
+        this.life = Math.floor(life * roundDifficult);
         this.goldValue = gold;
         this.bossSize = bossSize;
         this.damage = damage
@@ -71,15 +72,16 @@ class Boss {
 
     remove() {
         gameContainer.removeChild(this.element);
-        this.stopSpawningEnemies()
+        this.stopSpawningEnemies();
 
         const index = Boss.aliveBoss.indexOf(this);
+
         if (index > -1) {
             Boss.aliveBoss.splice(index, 1);
         }
 
-        Boss.defeatEnemies++;
-        document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Boss.defeatEnemies}`;
+        Enemy.defeatEnemies++;
+        document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Enemy.defeatEnemies}`;
         Round.checkAliveEnemies();
         Player.obtainGold(this.goldValue);
     }
@@ -103,13 +105,12 @@ class Boss {
         }
     }
 
-    static spawnBoss(roundDifficult) {
-
+    static spawnBoss(currentRound) {
         let bossType = Math.floor(Math.random() * Boss.types.length)
 
         bossType = Boss.types[bossType]      
 
-        const boss = new Boss(bossType, roundDifficult);
+        const boss = new Boss(bossType, currentRound);
         Boss.aliveBoss.push(boss);
     }
 

@@ -8,38 +8,29 @@ class Round {
     static currentRound = 1;
     static spawnedEnemies = 0;
     static roundEnemies = 0;
-    static roundDifficult = 0
-    static bossRound = 1
+    static roundBosses = 0;
 
     constructor() {
         Round.occurring = true;
         Round.spawnedEnemies = 0;
         Round.roundEnemies = Round.currentRound * 10;
-
-        if (Round.currentRound % 5 == 0) {
-            Round.roundDifficult += 1
-            //adiciona um de vida nos inimigos a cada 5 rounds 
-        }
-        if (Round.currentRound % 10 == 0) {
-            Round.bossRound ++
-        }
+        Round.roundBosses = 1 + Math.floor(Round.currentRound * 0.1);
 
         this.spawnRoundEnemies();
     }
     
     spawnRoundEnemies() {
-        for (let i = 0; i < Round.roundEnemies; i++) {
+        const bossRate = Math.ceil(Round.roundEnemies / (Round.roundBosses));
+        for (let i = 1; i <= Round.roundEnemies; i++) {
             setTimeout(() => {
-                Enemy.spawnEnemy(Round.roundDifficult);      
-                
-                if (Round.spawnedEnemies == Round.roundEnemies/2) {
-                    for(let i = 0; i < Round.bossRound; i++){
-                        Boss.spawnBoss(Round.roundDifficult)         
-                    }
+                if(i % bossRate === 0) {
+                    Boss.spawnBoss(Round.currentRound);
                 }
+
+                Enemy.spawnEnemy(Round.currentRound);   
                 
                 Round.spawnedEnemies++;
-            }, (i * 1000) / (Round.currentRound * 0.5));
+            }, (i * 1000) / (1 + Round.currentRound * 0.2));
         }
     }
         
