@@ -56,13 +56,12 @@ function freezeEnemies() {
 }
 
 function kazakhstanBomb() {
-    console.log(Enemy.aliveEnemies);
     
-    Enemy.aliveEnemies.forEach(enemy => {
+    [...Enemy.aliveEnemies].forEach(enemy => {
         enemy.remove();
     });
 
-    Boss.aliveBoss.forEach(boss => {
+    [...Boss.aliveBoss].forEach(boss => {
         boss.remove();
     });
 }
@@ -98,7 +97,6 @@ window.addEventListener('keydown', (event) => {
 
 window.addEventListener('keydown', (event) => {
     if (event.code === 'Enter') { 
-        console.log(Enemy.aliveEnemies);
         
         if (Player.kazakhstanBomb > 0) {
             
