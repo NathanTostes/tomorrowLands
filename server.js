@@ -14,6 +14,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
+    res.render('home', { title: 'Tela Inicial - Tomorrow Lands' });
+});
+
+app.get('/game', (req, res) => {
     res.render('game', { title: 'Tomorrow Lands' });
 });
 
