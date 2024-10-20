@@ -8,26 +8,27 @@ class Enemy {
     static types = [];
     static aliveEnemies = [];
     static defeatEnemies = 0;
-    static frozedActivated = false
+    static frozedActivated = false;
 
     static async loadEnemyTypes() {
         this.types = await loadEnemiesFromJSON();
     }
 
-    constructor(enemyStatus, roundDifficult) {
+    constructor(enemyStatus, currentRound) {
+        const roundDifficult = 0.8 + currentRound * 0.2;
+
         this.element = document.createElement('div');
         this.element.classList.add('enemy');
         this.element.id = enemyStatus.type;
-        
+
         const enemySize = parseInt(getComputedStyle(this.element).getPropertyValue('--enemy-size')) || 30;
 
         const { velocity, life, gold } = enemyStatus;
         this.velocity = velocity;
-        this.life = life + roundDifficult;
+        this.life = Math.floor(life * roundDifficult);
         this.goldValue = gold;
         this.enemySize = enemySize;
-        
-        this.isFrozen = false
+        this.isFrozen = false;
 
         let x, y;
         const spawnDirection = Math.floor(Math.random() * 4);
@@ -79,9 +80,9 @@ class Enemy {
     }
 
     moveToPlayer(playerDirection) {
-        if (this.isFrozen){
+        if (this.isFrozen) {
             return
-        }; 
+        };
 
         const rectEnemy = this.element.getBoundingClientRect();
         const enemyCenterX = rectEnemy.left + rectEnemy.width / 2;
@@ -101,31 +102,32 @@ class Enemy {
         }
     }
 
-    static spawnEnemy(roundDifficult) {
-        let randomIndex = Math.floor(Math.random() * 100);
-        let accumulatedChance = 0
+    static pickRandonEnemyType () {
+        const weightedEnemyList = [];
 
         for (const element of Enemy.types) {
-            
-            accumulatedChance += element.spawn
-
-            if (accumulatedChance > randomIndex) {
-                let enemyType = element;
-                
-                
-                const enemy = new Enemy(enemyType, roundDifficult);
-                Enemy.aliveEnemies.push(enemy);
-                break;  
+            for (let i = 0; i < element.spawn; i++) {
+                weightedEnemyList.push(element);
             }
         }
+
+        const randomIndex = Math.floor(Math.random() * weightedEnemyList.length);
+        return weightedEnemyList[randomIndex];
+    }
+
+    static spawnEnemy(currentRound) {
+        const enemyType = this.pickRandonEnemyType();
+        const enemy = new Enemy(enemyType, currentRound);
+        Enemy.aliveEnemies.push(enemy);
     }
 
     static spawnEnemyNearPosition(x, y) {
-        const enemy = new Enemy(Enemy.types[Math.floor(Math.random() * Enemy.types.length)], Round.roundDifficult);
-    
+        const enemyType = this.pickRandonEnemyType();
+        const enemy = new Enemy(enemyType, Round.currentRound);
+
         enemy.element.style.left = `${x}px`;
         enemy.element.style.top = `${y}px`;
-    
+
         Enemy.aliveEnemies.push(enemy);
     }
 }

@@ -75,11 +75,9 @@ await Boss.loadBossesTypes();
 new Round()
 requestAnimationFrame(gameLoop);
 
-//verificar se o espaço está sendo pressionado
 
 window.addEventListener('keydown', (event) => {
     if (event.code === 'Space') { 
-        
         if (Player.freze > 0) {
             freezeEnemies()
             Player.freze --
