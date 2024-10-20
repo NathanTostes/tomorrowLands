@@ -41,31 +41,38 @@ body {
 }
 
 #enemy1 {
-    --enemy-size: 60px;
-    width: 60px;
-    height: 60px;
-    background-color: red;
+    --enemy-size: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: #82c767;
 }
 
 #enemy2 {
-    --enemy-size: 50px; 
-    width: 50px;
-    height: 50px;
-    background-color: green;
+    --enemy-size: 70px; 
+    width: 70px;
+    height: 70px;
+    background-color: #42bcc0;
 }
 
 #enemy3 {
-    --enemy-size: 100px; 
-    width: 100px;
-    height: 100px;
-    background-color: purple;
+    --enemy-size: 90px; 
+    width: 90px;
+    height: 90px;
+    background-color: #c72a2a;
 }
 
 #enemy4 {
     --enemy-size: 120px; 
     width: 120px;
     height: 120px;
-    background-color: chocolate;
+    background-color: #441272;
+}
+
+#enemy5 {
+    --enemy-size: 150px; 
+    width: 150px;
+    height: 150px;
+    background-color: #1f4907;
 }
 
 .tower {
