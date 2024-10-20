@@ -41,31 +41,73 @@ body {
 }
 
 #enemy1 {
-    --enemy-size: 60px;
-    width: 60px;
-    height: 60px;
-    background-color: red;
+    --enemy-size: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: #82c767;
 }
 
 #enemy2 {
-    --enemy-size: 50px; 
-    width: 50px;
-    height: 50px;
-    background-color: green;
+    --enemy-size: 65px; 
+    width: 65px;
+    height: 65px;
+    background-color: #42bcc0;
 }
 
 #enemy3 {
-    --enemy-size: 100px; 
-    width: 100px;
-    height: 100px;
-    background-color: purple;
+    --enemy-size: 80px; 
+    width: 80px;
+    height: 80px;
+    background-color: #c72a2a;
 }
 
 #enemy4 {
-    --enemy-size: 120px; 
-    width: 120px;
-    height: 120px;
-    background-color: chocolate;
+    --enemy-size: 100px; 
+    width: 100px;
+    height: 100px;
+    background-color: #441272;
+}
+
+#enemy5 {
+    --enemy-size: 125px; 
+    width: 125px;
+    height: 125px;
+    background-color: #1f4907;
+}
+
+.boss{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+}
+
+#boss1{
+    --boss-size: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: #b2ccca;
+}
+
+#boss2{
+    --boss-size: 150px;
+    width: 150px;
+    height: 150px;
+    background-color: #792323;
+}
+
+#boss3{
+    --boss-size: 300px;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(1, 24, 24);
+}
+
+#boss4{
+    --boss-size: 200px;
+    width: 200px;
+    height: 200px;
+    background-color: #ff00f2;
 }
 
 .tower {
@@ -176,33 +218,4 @@ p {
     font-size: 18px;
     border: 2px solid black;
     border-radius: 5px;
-}
-
-
-.boss{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; 
-}
-
-#boss1{
-    --boss-size: 120px;
-    width: 120px;
-    height: 120px;
-    background-color: yellow;
-}
-
-#boss2{
-    --boss-size: 100px;
-    width: 100px;
-    height: 100px;
-    background-color: black;
-}
-
-#boss3{
-    --boss-size: 100px;
-    width: 100px;
-    height: 100px;
-    background-color: aqua;
 }

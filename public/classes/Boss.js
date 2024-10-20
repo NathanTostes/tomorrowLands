@@ -28,7 +28,7 @@ class Boss {
         this.life = Math.floor(life * roundDifficult);
         this.goldValue = gold;
         this.bossSize = bossSize;
-        this.damage = damage
+        this.damage = Math.floor(damage * roundDifficult);
         
         let x, y;
         const spawnDirection = Math.floor(Math.random() * 4);
@@ -57,7 +57,7 @@ class Boss {
 
         this.element.addEventListener('click', () => this.hit(Player.attack));
 
-        if (bossStatus.type === 'boss1') {
+        if (bossStatus.type === 'boss4') {
             this.spawnEnemiesOverTime();
         }
 
