@@ -1,23 +1,30 @@
 [
     {
         "type": "boss1",
-        "velocity": 0.5,
-        "life": 10,
-        "gold": 10,
-        "damage": 10
+        "velocity": 8,
+        "life": 1,
+        "gold": 20,
+        "damage": 25
     },
     {
         "type": "boss2",
-        "velocity":0.3,
-        "life": 30,
-        "gold": 10,
-        "damage": 30
+        "velocity": 2,
+        "life": 50,
+        "gold": 50,
+        "damage": 50
     },
     {
         "type": "boss3",
-        "velocity": 8,
-        "life": 1,
-        "gold": 10,
-        "damage": 5
+        "velocity": 0.25,
+        "life": 100,
+        "gold": 20,
+        "damage": 100
+    },
+    {
+        "type": "boss4",
+        "velocity": 0.25,
+        "life": 25,
+        "gold": 40,
+        "damage": 50
     }
 ]
