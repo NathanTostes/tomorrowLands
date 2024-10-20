@@ -8,22 +8,22 @@
     },
     {
         "type": "boss2",
-        "velocity": 2,
-        "life": 50,
-        "gold": 50,
+        "velocity": 0.5,
+        "life": 40,
+        "gold": 20,
         "damage": 50
     },
     {
         "type": "boss3",
         "velocity": 0.25,
-        "life": 100,
+        "life": 60,
         "gold": 20,
         "damage": 100
     },
     {
         "type": "boss4",
         "velocity": 0.25,
-        "life": 25,
+        "life": 20,
         "gold": 40,
         "damage": 50
     }

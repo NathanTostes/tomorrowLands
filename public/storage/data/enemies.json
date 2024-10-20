@@ -23,14 +23,14 @@
     {
         "type": "enemy4",
         "velocity": 1,
-        "life": 8,
+        "life": 6,
         "gold": 2,
         "spawn": 2
     },
     {
         "type": "enemy5",
         "velocity": 0.5,
-        "life": 16,
+        "life": 8,
         "gold": 4,
         "spawn": 1
     }
