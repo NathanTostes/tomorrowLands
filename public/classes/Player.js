@@ -1,5 +1,7 @@
-import Construct from "/classes/Construction.js";
 import Shop from "/classes/Shop.js";
+import Enemy from "/classes/Enemy.js";
+import Round from "/classes/Round.js";
+import Construct from "/classes/Construction.js";
 
 const gameContainer = document.getElementById('gameContainer');
 
@@ -77,9 +79,12 @@ class Player {
     }
 
     static remove() {
-        gameContainer.removeChild(Player.element);
-        alert("Você foi derrotado!");
+        const lastRound = Round.currentRound;
+        const defeatedEnemies = Enemy.defeatEnemies;
+    
+        window.location.href = `/?round=${lastRound}&enemies=${defeatedEnemies}`;
     }
+    
 }
 
 export default Player;
