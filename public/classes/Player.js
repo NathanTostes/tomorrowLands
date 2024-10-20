@@ -1,6 +1,5 @@
 import Construct from "/classes/Construction.js";
 import Shop from "/classes/Shop.js";
-import Enemy from "/Classes/Enemy.js";
 
 const gameContainer = document.getElementById('gameContainer');
 

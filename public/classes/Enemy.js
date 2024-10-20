@@ -1,6 +1,6 @@
 import { loadEnemiesFromJSON } from '/storage/access.js';
-import Player from './Player.js';
-import Round from './Round.js';
+import Player from '/classes/Player.js';
+import Round from '/classes/Round.js';
 
 const gameContainer = document.getElementById('gameContainer');
 
