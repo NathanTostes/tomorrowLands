@@ -57,6 +57,9 @@ function freezeEnemies() {
 
 function kazakhstanBomb() {
     
+    Player.kazakhstanBomb--
+    document.getElementById('playerBomb-counter').textContent = `Kazakhstan Bomb: ${Player.kazakhstanBomb}`;
+
     [...Enemy.aliveEnemies].forEach(enemy => {
         enemy.remove();
     });
@@ -101,7 +104,6 @@ window.addEventListener('keydown', (event) => {
         if (Player.kazakhstanBomb > 0) {
             
             kazakhstanBomb();
-            Player.kazakhstanBomb--
         }        
     }
 });
