@@ -6,9 +6,9 @@
         "effect": "improveAtack"
     },
     {
-        "name": "Regenerar",
+        "name": "Resistência",
         "value": 4,
-        "description": "Recupera saúde",
+        "description": "Aumenta sua resistência em 10 pontos",
         "effect": "regenerate"
     },
     {
@@ -16,12 +16,6 @@
         "value": 20,
         "description": "Constroi uma defesa", 
         "effect": "construct"
-    },
-    {
-        "name": "Escudo",   
-        "value": 10,
-        "description": "Ganha dois escudos",
-        "effect": "purshaseShield"
     },
     {
         "name": "Gelo",   
