@@ -26,7 +26,13 @@
     {
         "name": "Gelo",   
         "value": 25,
-        "description": "Paralisa os inimigos",
+        "description": "Paralisa os inimigos. Pressione espaço para usar",
         "effect": "purshaseFrozen"
+    },
+    {
+        "name": "Kazakhstan Bomb",   
+        "value": 100,
+        "description": "Mata todos inimigos. Pressione enter para usar",
+        "effect": "purshasekazakhstanBomb"
     }
 ]

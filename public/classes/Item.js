@@ -22,6 +22,8 @@ class Item {
                 return 1;
             case 'Gelo':
                 return Player.freze + 1;
+            case 'Kazakhstan Bomb':
+                return Player.kazakhstanBomb + 1 
             default:
                 return 0;
         }

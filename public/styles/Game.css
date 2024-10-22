@@ -162,6 +162,12 @@ p {
     right: 10px;
 }
 
+#playerBomb-counter{
+    position: absolute;
+    top: 70px;
+    right: 10px;
+}
+
 #shop{
     position: absolute;
     left: calc(50% - 500px);
@@ -199,7 +205,7 @@ p {
 
 .shop-item{
     width: 100px;
-    height: 100px;
+    height: 130px;
     border: '1px solid gray';
     margin-left: 5px;
     padding: '10px';

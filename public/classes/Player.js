@@ -12,6 +12,8 @@ class Player {
     static gold = 0
     static shield = 0
     static freze = 0
+    static kazakhstanBomb = 0
+
     static create() {
         Player.element.id = 'player';
         gameContainer.appendChild(Player.element);
@@ -61,6 +63,12 @@ class Player {
         Player.freze += 1
         document.getElementById('playerFreeze-counter').textContent = `Gelo: ${Player.freze}`
         Shop.refresh();
+    }
+
+    static purshasekazakhstanBomb(){
+        Player.kazakhstanBomb += 1
+        document.getElementById('playerBomb-counter').textContent = `Kazakhstan Bomb: ${Player.kazakhstanBomb}`
+        Shop.refresh()
     }
     
     static construct() {
