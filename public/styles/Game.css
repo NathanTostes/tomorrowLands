@@ -11,6 +11,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
+
+    background-image: url('/images/gameBackground.jpg');
+    background-size: cover;
 }
 
 #gameContainer {
@@ -21,14 +25,15 @@ body {
 }
 
 #player {
-
-    width: 50px;
-    height: 80px; 
-    background-color: blue;
+    width: 100px;
+    height: 100px; 
 
     position: absolute;
     top: calc(50% - 25px);
     left: calc(50% - 25px);
+
+    background-size: cover;
+    background-image: url('/images/god.png');
 }
 
 .enemy {
@@ -79,35 +84,43 @@ body {
     position: absolute;
     width: 50px;
     height: 50px;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 
 #boss1{
     --boss-size: 100px;
     width: 100px;
     height: 100px;
-    background-color: #b2ccca;
+
+    background-size: cover;
+    background-image: url('/images/cryAngel.png');
 }
 
 #boss2{
     --boss-size: 150px;
     width: 150px;
     height: 150px;
-    background-color: #792323;
+
+    background-size: cover;
+    background-image: url('/images/ancientDemon.png');
 }
 
 #boss3{
     --boss-size: 300px;
     width: 300px;
     height: 300px;
-    background-color: rgb(1, 24, 24);
+    
+    background-size: cover;
+    background-image: url('/images/dimensionDestroyer.png');
 }
 
 #boss4{
     --boss-size: 200px;
     width: 200px;
     height: 200px;
-    background-color: #ff00f2;
+
+    background-size: cover;
+    background-image: url('/images/theCreator.png');
 }
 
 .tower {
