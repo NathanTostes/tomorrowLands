@@ -32,8 +32,8 @@ class Player {
         Shop.refresh();
     }
 
-    static regenerate() {
-        Player.life = 10;
+    static improveResistence() {
+        Player.life += 10;
         document.getElementById('playerLife-counter').textContent = `Vida: ${Player.life}`;
         Shop.refresh();
     }

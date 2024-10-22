@@ -7,9 +7,9 @@
     },
     {
         "name": "Resistência",
-        "value": 4,
+        "value": 5,
         "description": "Aumenta sua resistência em 10 pontos",
-        "effect": "regenerate"
+        "effect": "improveResistence"
     },
     {
         "name": "Torre", 
