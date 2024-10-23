@@ -180,7 +180,8 @@ p {
     top: calc(50% - 350px);
     width: 1000px;
     height: 700px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.800);
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     display: flex;
