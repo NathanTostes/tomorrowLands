@@ -3,11 +3,12 @@ import Construction from "/classes/Construction.js";
 import Shop from "/classes/Shop.js";
 
 class Item {
-    constructor(name, value, description, effect) {
+    constructor(name, value, description, effect, image) {
         this.name = name;
         this.value = value;
         this.description = description;
         this.effect = effect;
+        this.image = image
     }
 
     static getIncreased(itemName) {

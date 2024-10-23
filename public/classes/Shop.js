@@ -28,22 +28,35 @@ class Shop {
         this.items.forEach((item) => {
             const itemDiv = document.createElement('div');
             itemDiv.classList.add('shop-item');
-            itemDiv.innerHTML = `<strong>${item.description}</strong><br>Valor: ${item.value}`;
+            console.log(item.image);
+            
+    
+            const imageDiv = document.createElement('div');
+            imageDiv.classList.add('item-image');
+            imageDiv.style.backgroundImage = `url(${item.image})`;
+            imageDiv.style.backgroundSize = 'cover';
+            const itemDetails = document.createElement('div');
+            itemDetails.innerHTML = `<strong>${item.description}</strong><br>Valor: ${item.value}`;
+    
+            itemDiv.appendChild(itemDetails);
+            itemDiv.appendChild(imageDiv);
             this.elementShop.appendChild(itemDiv);
             itemDiv.addEventListener('click', () => {
-                    item.comprar();
-                }
-            );
+                item.comprar();
+            });
         });
     }
-
+    
+    
     static createTitle() {
         const title = document.createElement('p');
         title.innerHTML = `Loja`;
         title.id = 'shop-title';
         this.elementShop.appendChild(title);
     }
+    
 
+    
     static createButtonExit() {
         const btnExit = document.createElement('div');
         btnExit.innerHTML = 'Sair';
@@ -51,7 +64,7 @@ class Shop {
         btnExit.addEventListener('click', () => Shop.exitShopAndReturnGame());
         this.elementShop.appendChild(btnExit);
     }
-
+    
     static exitShop() {
         this.elementShop.remove();
     }
