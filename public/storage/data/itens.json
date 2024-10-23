@@ -20,7 +20,7 @@
         "value": 20,
         "description": "Constroi uma defesa", 
         "effect": "construct",
-        "image": "/images/void.png"
+        "image": "/images/itens/void.png"
 
     },
     {
