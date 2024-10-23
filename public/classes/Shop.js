@@ -36,6 +36,7 @@ class Shop {
             imageDiv.style.backgroundImage = `url(${item.image})`;
             imageDiv.style.backgroundSize = 'cover';
             const itemDetails = document.createElement('div');
+            itemDetails.classList.add('shop-item-details')
             itemDetails.innerHTML = `<strong>${item.description}</strong><br>Valor: ${item.value}`;
     
             itemDiv.appendChild(itemDetails);
@@ -50,7 +51,7 @@ class Shop {
     
     static createTitle() {
         const title = document.createElement('p');
-        title.innerHTML = `Loja`;
+        title.innerHTML = `<strong>Upgrades: </strong>`;
         title.id = 'shop-title';
         this.elementShop.appendChild(title);
     }

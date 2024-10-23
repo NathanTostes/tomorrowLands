@@ -7,7 +7,7 @@ const gameContainer = document.getElementById('gameContainer');
 
 class Player {
     static element = document.createElement('div');
-    static life = 10;
+    static life = 1000;
     static attack = 1;
     static gold = 0
     static freze = 0

@@ -180,7 +180,7 @@ p {
     top: calc(50% - 350px);
     width: 1000px;
     height: 700px;
-    background-color: rgba(0, 0, 0, 0.800);
+    background-color: rgba(0, 0, 0, 0.850);
     border-radius: 10px;
     align-items: center;
     justify-content: center;
@@ -212,22 +212,27 @@ p {
 
 .shop-item{
     width: 200px;
-    height: auto;
-    border: '1px solid gray';
+    height: 300px;
     margin-left: 5px;
     padding: '10px';
-    cursor: 'pointer';
-    background-color: gray;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
     text-align: center;
     display: flex;
+    border-radius: 10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.shop-item-details{
+    color: white;
+}
+
 .item-image{
     width: 150px;
     height: 150px;
+    margin: 20px;
 }
 
 #instruction {
