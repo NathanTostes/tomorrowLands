@@ -118,7 +118,7 @@ body {
     --boss-size: 200px;
     width: 200px;
     height: 200px;
-
+    border-radius: 0%;
     background-size: cover;
     background-image: url('/images/theCreator.png');
 }
