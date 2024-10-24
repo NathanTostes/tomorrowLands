@@ -9,6 +9,13 @@ class Shop {
     static async initShop() {
         this.items = await loadItemsFromJSON();
         this.createElements();
+        try{
+            let alert = document.getElementById("final-round-alert")
+            alert.remove()
+        }
+        catch(error){
+
+        }
     }
 
     static createElements() {
@@ -28,7 +35,6 @@ class Shop {
         this.items.forEach((item) => {
             const itemDiv = document.createElement('div');
             itemDiv.classList.add('shop-item');
-            console.log(item.image);
             
     
             const imageDiv = document.createElement('div');

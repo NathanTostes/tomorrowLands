@@ -43,8 +43,12 @@ class Round {
     
     static endRound() {
         Round.occurring = false;
-        window.alert(`Rodada ${Round.currentRound} finalizada`);
-        setTimeout(() => Shop.initShop(), 1000);
+        const gameContainer = document.getElementById('gameContainer');
+        const alert = document.createElement('div');
+        alert.innerHTML = `Rodada ${Round.currentRound} finalizada`;
+        alert.id = "final-round-alert";
+        gameContainer.appendChild(alert);
+        setTimeout(() => Shop.initShop(), 1500);
     }
 
     static nextRound() {
