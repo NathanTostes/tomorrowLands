@@ -93,7 +93,7 @@ body {
     height: 100px;
 
     background-size: cover;
-    background-image: url('/images/cryAngel.png');
+    background-image: url('/images/bosses/cryAngel.png');
 }
 
 #boss2{
@@ -102,7 +102,7 @@ body {
     height: 150px;
 
     background-size: cover;
-    background-image: url('/images/ancientDemon.png');
+    background-image: url('/images/bosses/ancientDemon.png');
 }
 
 #boss3{
@@ -111,7 +111,7 @@ body {
     height: 300px;
     
     background-size: cover;
-    background-image: url('/images/dimensionDestroyer.png');
+    background-image: url('/images/bosses/dimensionDestroyer.png');
 }
 
 #boss4{
@@ -120,7 +120,7 @@ body {
     height: 200px;
     border-radius: 0%;
     background-size: cover;
-    background-image: url('/images/theCreator.png');
+    background-image: url('/images/bosses/theCreator.png');
 }
 
 .tower {
