@@ -30,11 +30,24 @@ class Item {
 
     comprar() {
         if (Player.gold < this.value) {
-            window.alert('Moedas insuficientes');
+
+            const alert = document.createElement('div');
+            alert.innerHTML = `Moedas insuficientes`;
+            alert.id = "final-round-alert";
+            gameContainer.appendChild(alert);
+
+            this.removeAlertGold(alert)
+
             return;
         }
         Player.loseGold(this.value);
         this.executeEffect();
+    }
+
+    removeAlertGold(alertElement){
+        setTimeout(() => {
+            alertElement.remove();
+        }, 2000);
     }
 
     executeEffect() {
