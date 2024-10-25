@@ -15,13 +15,13 @@ class Item {
         switch (itemName) {
             case 'Poder':
                 return Player.attack;
-            case 'Resistência':
+            case 'Vida':
                 return Math.floor(Player.life / 10) + 1;
-            case 'Torre':
+            case 'Void':
                 return Construction.towers.length + 1;
-            case 'Gelo':
+            case 'Zero Absoluto':
                 return Player.freze + 1;
-            case 'Kazakhstan Bomb':
+            case 'Sobrecarga':
                 return Player.kazakhstanBomb + 1 
             default:
                 return 0;

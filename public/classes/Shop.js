@@ -43,7 +43,7 @@ class Shop {
             imageDiv.style.backgroundSize = 'cover';
             const itemDetails = document.createElement('div');
             itemDetails.classList.add('shop-item-details')
-            itemDetails.innerHTML = `<strong>${item.description}</strong><br>Valor: ${item.value}`;
+            itemDetails.innerHTML = `<strong>${item.name}</strong><br>${item.description}<br>Valor: ${item.value}`;
     
             itemDiv.appendChild(itemDetails);
             itemDiv.appendChild(imageDiv);

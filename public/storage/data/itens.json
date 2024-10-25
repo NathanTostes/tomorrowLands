@@ -8,7 +8,7 @@
 
     },
     {
-        "name": "Resistência",
+        "name": "Vida",
         "value": 5,
         "description": "Aumenta sua resistência em 10 pontos",
         "effect": "improveResistence",
@@ -16,7 +16,7 @@
 
     },
     {
-        "name": "Torre", 
+        "name": "Void", 
         "value": 20,
         "description": "Constroi uma defesa", 
         "effect": "construct",
@@ -24,7 +24,7 @@
 
     },
     {
-        "name": "Gelo",   
+        "name": "Zero Absoluto",   
         "value": 25,
         "description": "Paralisa os inimigos. Pressione espaço para usar",
         "effect": "purshaseFrozen",
@@ -32,7 +32,7 @@
 
     },
     {
-        "name": "Kazakhstan Bomb",   
+        "name": "Sobrecarga",   
         "value": 100,
         "description": "Mata todos inimigos. Pressione enter para usar",
         "effect": "purshasekazakhstanBomb",
