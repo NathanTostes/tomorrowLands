@@ -24,6 +24,11 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/lore', (req, res) => {
+    res.render('lore', { title: 'História - Tomorrow Lands' });
+});
+
+
 app.get('/game', (req, res) => {
     res.render('game', { title: 'Tomorrow Lands' });
 });
