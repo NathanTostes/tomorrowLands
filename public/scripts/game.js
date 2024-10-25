@@ -58,7 +58,7 @@ function freezeEnemies() {
 function kazakhstanBomb() {
     
     Player.kazakhstanBomb--
-    document.getElementById('playerBomb-counter').textContent = `Kazakhstan Bomb: ${Player.kazakhstanBomb}`;
+    document.getElementById('playerBomb-counter').textContent = `Sobrecarga: ${Player.kazakhstanBomb}`;
 
     [...Enemy.aliveEnemies].forEach(enemy => {
         enemy.remove();
