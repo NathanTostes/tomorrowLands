@@ -2,9 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-y: hidden; 
+    overflow-y: hidden;
     overflow-x: hidden;
-    font-family: Arial, sans-serif;
+
+
+    font-family: "Jacquard 12", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
@@ -27,7 +31,7 @@ body {
 
 #player {
     width: 100px;
-    height: 100px; 
+    height: 100px;
 
     position: absolute;
     top: calc(50% - 25px);
@@ -38,11 +42,11 @@ body {
 }
 
 .enemy {
-    
+
     position: absolute;
     width: 50px;
     height: 50px;
-    border-radius: 50%; 
+    border-radius: 50%;
 
 }
 
@@ -56,7 +60,7 @@ body {
 }
 
 #enemy2 {
-    --enemy-size: 65px; 
+    --enemy-size: 65px;
     width: 65px;
     height: 65px;
     background-size: cover;
@@ -65,7 +69,7 @@ body {
 }
 
 #enemy3 {
-    --enemy-size: 80px; 
+    --enemy-size: 80px;
     width: 80px;
     height: 80px;
     background-size: cover;
@@ -74,7 +78,7 @@ body {
 }
 
 #enemy4 {
-    --enemy-size: 100px; 
+    --enemy-size: 100px;
     width: 100px;
     height: 100px;
     background-size: cover;
@@ -83,7 +87,7 @@ body {
 }
 
 #enemy5 {
-    --enemy-size: 125px; 
+    --enemy-size: 125px;
     width: 125px;
     height: 125px;
     background-size: cover;
@@ -91,14 +95,14 @@ body {
     background-image: url('/images/enemies/enemy5.png');
 }
 
-.boss{
+.boss {
     position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-#boss1{
+#boss1 {
     --boss-size: 100px;
     width: 100px;
     height: 100px;
@@ -107,7 +111,7 @@ body {
     background-image: url('/images/bosses/cryAngel.png');
 }
 
-#boss2{
+#boss2 {
     --boss-size: 150px;
     width: 150px;
     height: 150px;
@@ -116,16 +120,16 @@ body {
     background-image: url('/images/bosses/ancientDemon.png');
 }
 
-#boss3{
+#boss3 {
     --boss-size: 300px;
     width: 300px;
     height: 300px;
-    
+
     background-size: cover;
     background-image: url('/images/bosses/dimensionDestroyer.png');
 }
 
-#boss4{
+#boss4 {
     --boss-size: 200px;
     width: 200px;
     height: 200px;
@@ -138,14 +142,14 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-    background-size: 100%;  
+    background-size: 100%;
     background-image: url('/images/void.png');
 }
 
 /* Contadores: */
 
 p {
-    font-size: 20px;
+    font-size: 40px;
     color: black;
 }
 
@@ -173,19 +177,19 @@ p {
     left: 10px;
 }
 
-#playerFreeze-counter{
+#playerFreeze-counter {
     position: absolute;
     top: 40px;
     right: 10px;
 }
 
-#playerBomb-counter{
+#playerBomb-counter {
     position: absolute;
     top: 70px;
     right: 10px;
 }
 
-#shop{
+#shop {
     position: absolute;
     left: calc(50% - 500px);
     top: calc(50% - 350px);
@@ -199,14 +203,14 @@ p {
 }
 
 
-#shop-title{
+#shop-title {
     position: absolute;
     top: 15px;
     left: 500px;
     color: white;
 }
 
-#shop-btnExit{
+#shop-btnExit {
     width: 80px;
     height: 20px;
     color: white;
@@ -221,7 +225,7 @@ p {
     cursor: pointer;
 }
 
-.shop-item{
+.shop-item {
     width: 200px;
     height: 300px;
     margin-left: 5px;
@@ -236,11 +240,11 @@ p {
     align-items: center;
 }
 
-.shop-item-details{
+.shop-item-details {
     color: white;
 }
 
-.item-image{
+.item-image {
     width: 150px;
     height: 150px;
     margin: 20px;
@@ -258,7 +262,7 @@ p {
     border-radius: 5px;
 }
 
-#final-round-alert{
+#final-round-alert {
     position: absolute;
     bottom: 10px;
     left: 50%;
