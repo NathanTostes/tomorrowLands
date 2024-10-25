@@ -2,8 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-y: hidden; 
+    overflow-y: hidden;
     overflow-x: hidden;
+
+
+    font-family: "Jacquard 12", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
@@ -11,6 +16,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
+
+    background-image: url('/images/gameBackground.jpg');
+    background-size: cover;
 }
 
 #gameContainer {
@@ -21,108 +30,126 @@ body {
 }
 
 #player {
-
-    width: 50px;
-    height: 80px; 
-    background-color: blue;
+    width: 100px;
+    height: 100px;
 
     position: absolute;
     top: calc(50% - 25px);
     left: calc(50% - 25px);
+
+    background-size: cover;
+    background-image: url('/images/god.png');
 }
 
 .enemy {
-    
+
     position: absolute;
     width: 50px;
     height: 50px;
-    border-radius: 50%; 
+    border-radius: 50%;
 
 }
 
 #enemy1 {
-    --enemy-size: 50px;
-    width: 50px;
-    height: 50px;
-    background-color: #82c767;
+    --enemy-size: 60px;
+    width: 60px;
+    height: 60px;
+    /* background-color: #82c767; */
+    background-size: cover;
+    background-image: url('/images/enemies/enemy1.png');
 }
 
 #enemy2 {
-    --enemy-size: 65px; 
+    --enemy-size: 65px;
     width: 65px;
     height: 65px;
-    background-color: #42bcc0;
+    background-size: cover;
+    /* background-color: #42bcc0; */
+    background-image: url('/images/enemies/enemy2.png');
 }
 
 #enemy3 {
-    --enemy-size: 80px; 
+    --enemy-size: 80px;
     width: 80px;
     height: 80px;
-    background-color: #c72a2a;
+    background-size: cover;
+    /* background-color: #c72a2a; */
+    background-image: url('/images/enemies/enemy3.png');
 }
 
 #enemy4 {
-    --enemy-size: 100px; 
+    --enemy-size: 100px;
     width: 100px;
     height: 100px;
-    background-color: #441272;
+    background-size: cover;
+    /* background-color: #441272; */
+    background-image: url('/images/enemies/enemy4.png');
 }
 
 #enemy5 {
-    --enemy-size: 125px; 
+    --enemy-size: 125px;
     width: 125px;
     height: 125px;
-    background-color: #1f4907;
+    background-size: cover;
+    /* background-color: #1f4907; */
+    background-image: url('/images/enemies/enemy5.png');
 }
 
-.boss{
+.boss {
     position: absolute;
     width: 50px;
     height: 50px;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 
-#boss1{
+#boss1 {
     --boss-size: 100px;
     width: 100px;
     height: 100px;
-    background-color: #b2ccca;
+
+    background-size: cover;
+    background-image: url('/images/bosses/cryAngel.png');
 }
 
-#boss2{
+#boss2 {
     --boss-size: 150px;
     width: 150px;
     height: 150px;
-    background-color: #792323;
+
+    background-size: cover;
+    background-image: url('/images/bosses/ancientDemon.png');
 }
 
-#boss3{
+#boss3 {
     --boss-size: 300px;
     width: 300px;
     height: 300px;
-    background-color: rgb(1, 24, 24);
+
+    background-size: cover;
+    background-image: url('/images/bosses/dimensionDestroyer.png');
 }
 
-#boss4{
+#boss4 {
     --boss-size: 200px;
     width: 200px;
     height: 200px;
-    background-color: #ff00f2;
+    border-radius: 0%;
+    background-size: cover;
+    background-image: url('/images/bosses/theCreator.png');
 }
 
 .tower {
-    width: 50px;
-    height: 50px;
-    background-color: gray;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    border: 2px solid black;
-    border-radius: 10px;
+    background-size: 100%;
+    background-image: url('/images/void.png');
 }
 
 /* Contadores: */
 
 p {
-    font-size: 20px;
+    font-size: 40px;
     color: black;
 }
 
@@ -150,39 +177,40 @@ p {
     left: 10px;
 }
 
-#playerFreeze-counter{
+#playerFreeze-counter {
     position: absolute;
     top: 40px;
     right: 10px;
 }
 
-#playerBomb-counter{
+#playerBomb-counter {
     position: absolute;
     top: 70px;
     right: 10px;
 }
 
-#shop{
+#shop {
     position: absolute;
     left: calc(50% - 500px);
     top: calc(50% - 350px);
     width: 1000px;
     height: 700px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.850);
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
 
-#shop-title{
+#shop-title {
     position: absolute;
     top: 15px;
     left: 500px;
     color: white;
 }
 
-#shop-btnExit{
+#shop-btnExit {
     width: 80px;
     height: 20px;
     color: white;
@@ -197,15 +225,29 @@ p {
     cursor: pointer;
 }
 
-.shop-item{
-    width: 100px;
-    height: 130px;
-    border: '1px solid gray';
+.shop-item {
+    width: 200px;
+    height: 300px;
     margin-left: 5px;
     padding: '10px';
-    cursor: 'pointer';
-    background-color: gray;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
     text-align: center;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-item-details {
+    color: white;
+}
+
+.item-image {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
 }
 
 #instruction {
@@ -215,7 +257,19 @@ p {
     transform: translateX(-50%);
     background-color: yellow;
     padding: 10px;
-    font-size: 18px;
+    font-size: 40px;
     border: 2px solid black;
+    border-radius: 5px;
+}
+
+#final-round-alert {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
     border-radius: 5px;
 }

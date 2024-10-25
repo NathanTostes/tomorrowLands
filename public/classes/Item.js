@@ -3,24 +3,25 @@ import Construction from "/classes/Construction.js";
 import Shop from "/classes/Shop.js";
 
 class Item {
-    constructor(name, value, description, effect) {
+    constructor(name, value, description, effect, image) {
         this.name = name;
         this.value = value;
         this.description = description;
         this.effect = effect;
+        this.image = image
     }
 
     static getIncreased(itemName) {
         switch (itemName) {
             case 'Poder':
                 return Player.attack;
-            case 'Resistência':
+            case 'Vida':
                 return Math.floor(Player.life / 10) + 1;
-            case 'Torre':
+            case 'Void':
                 return Construction.towers.length + 1;
-            case 'Gelo':
+            case 'Zero Absoluto':
                 return Player.freze + 1;
-            case 'Kazakhstan Bomb':
+            case 'Sobrecarga':
                 return Player.kazakhstanBomb + 1 
             default:
                 return 0;
@@ -29,11 +30,24 @@ class Item {
 
     comprar() {
         if (Player.gold < this.value) {
-            window.alert('Moedas insuficientes');
+
+            const alert = document.createElement('div');
+            alert.innerHTML = `Moedas insuficientes`;
+            alert.id = "final-round-alert";
+            gameContainer.appendChild(alert);
+
+            this.removeAlertGold(alert)
+
             return;
         }
         Player.loseGold(this.value);
         this.executeEffect();
+    }
+
+    removeAlertGold(alertElement){
+        setTimeout(() => {
+            alertElement.remove();
+        }, 2000);
     }
 
     executeEffect() {

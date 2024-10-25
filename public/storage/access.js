@@ -4,9 +4,10 @@ export async function loadItemsFromJSON() {
     try {
         const response = await fetch('/storage/data/itens.json');
         const data = await response.json();
-        const items = data.map(itemData => 
-            new Item(itemData.name, itemData.value * Item.getIncreased(itemData.name), itemData.description, itemData.effect)
+        const items = data.map(itemData =>             
+            new Item(itemData.name, itemData.value * Item.getIncreased(itemData.name), itemData.description, itemData.effect, itemData.image)
         );
+        
 
         return items;
     } catch (error) {

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/styles/Home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h1>Tomorrow Lands</h1>
-        <img src="/images/example" alt="Logo do TomorrowLands" class="logo">
         
         <% if (lastRound > 0 && defeatedEnemies > 0) { %>
             <p>Rodada alcançada: <%= lastRound %></p>
