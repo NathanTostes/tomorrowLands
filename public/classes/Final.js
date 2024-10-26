@@ -28,16 +28,30 @@ class FinalScreen{
     }
 
     static createElements(){
+        this.createContent()
         this.createDiv()
         this.createText()
+        this.createDivButtons()
         this.createButtonContinue()
         this.createButtonClose()
     }
 
+    static createContent(){
+        this.content = document.createElement('div')
+        this.content.id = "content-finalScreen"
+        gameContainer.appendChild(this.content)
+    }
+
     static createDiv(){
         this.div = document.createElement('div')
-        this.div.id = "div-finalScreen"
-        gameContainer.appendChild(this.div)
+        this.div.id = 'div-finalScreen'
+        this.content.appendChild(this.div)
+    }
+    
+    static createDivButtons(){
+        this.divButtons = document.createElement('div')
+        this.divButtons.id = 'divButtons-finalScreen'
+        this.div.appendChild(this.divButtons)
     }
 
     static createText(){
@@ -50,17 +64,19 @@ class FinalScreen{
     static createButtonContinue(){
         this.buttonContinue = document.createElement('div')
         this.buttonContinue.id = 'buttonContinue-finalScreen'
+        this.buttonContinue.classList.add('buttons-finalScreen')
         this.buttonContinue.innerHTML = 'Continuar'
         this.buttonContinue.addEventListener('click', () => FinalScreen.closeFinalScreen());
-        this.div.appendChild(this.buttonContinue)
+        this.divButtons.appendChild(this.buttonContinue)
     }
 
     static createButtonClose(){
         this.buttonClose = document.createElement('div')
         this.buttonClose.id = 'buttonClose-finalScreen'
+        this.buttonClose.classList.add('buttons-finalScreen')
         this.buttonClose.innerHTML = 'Sair'
         this.buttonClose.addEventListener('click', () => FinalScreen.loadInitialScreen());
-        this.div.appendChild(this.buttonClose)
+        this.divButtons.appendChild(this.buttonClose)
     }
 
     static closeFinalScreen(){
@@ -69,6 +85,7 @@ class FinalScreen{
     }
 
     static removeElements(){
+        this.content.remove()
         this.div.remove()
         this.text.remove()
         this.buttonClose.remove()
