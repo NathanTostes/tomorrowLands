@@ -47,7 +47,6 @@ class FinalScreen{
     }
 
     static closeFinalScreen(){
-        console.log('rodadno');
         Shop.initShop()
         FinalScreen.removeElements()
     }
@@ -57,6 +56,12 @@ class FinalScreen{
         this.text.remove()
         this.buttonClose.remove()
         this.buttonContinue.remove()
+    }
+
+    static loadInitialScreen(){
+        const lastRound = Round.currentRound;
+        const defeatedEnemies = Enemy.defeatEnemies;
+        window.location.href = `/?round=${lastRound}&enemies=${defeatedEnemies}`;   
     }
 }
 
