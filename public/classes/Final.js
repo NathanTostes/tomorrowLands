@@ -4,10 +4,27 @@ import Enemy from "/classes/Enemy.js";
 
 const gameContainer = document.getElementById("gameContainer")
 
+const text = `testtestt esttestte sttes ttesttestt esttes ttest testtest testtestt estt esttesttest sttestte sttestte sttest test`
+
+function typeWriterEffect(text, elementId, speed) {
+    const element = document.getElementById(elementId);
+    let index = 0;
+    
+    function type() {
+        if (index < text.length) {
+            element.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
 class FinalScreen{
 
     static initFinalScreen(){
         this.createElements()
+        typeWriterEffect(text, 'text-finalScreen', 80);
     }
 
     static createElements(){
@@ -26,7 +43,7 @@ class FinalScreen{
     static createText(){
         this.text = document.createElement('p')
         this.text.id = 'text-finalScreen'
-        this.text.innerHTML = 'texto'
+        this.text.innerHTML = text
         this.div.appendChild(this.text)
     }
 
