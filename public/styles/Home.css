@@ -16,8 +16,12 @@ body {
 }
 
 h1 {
-    margin: 200px 0px 0px 0px;
+    margin: 150px 0px 0px 0px;
     font-size: 100px;
+}
+
+#storyText {
+    font-size: 40px;
 }
 
 .container {
@@ -41,4 +45,10 @@ button {
 
 button:hover {
     background-color: #21a1f1;
+}
+
+#container-lore{
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 510px;
+    border-radius: 30px;
 }
