@@ -4,7 +4,7 @@ import Enemy from "/classes/Enemy.js";
 
 const gameContainer = document.getElementById("gameContainer")
 
-const text = `testtestt esttestte sttes ttesttestt esttes ttest testtest testtestt estt esttesttest sttestte sttestte sttest test`
+const text = `Em meio ao vazio, repleto de escuridão e caos, se fez a luz e a ordem. O Deus da criação venceu a interminável batalha contra si, e assim, do nada, tudo se fez.`
 
 function typeWriterEffect(text, elementId, speed) {
     const element = document.getElementById(elementId);
