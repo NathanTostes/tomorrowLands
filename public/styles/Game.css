@@ -50,27 +50,27 @@ body {
 }
 
 #enemy1 {
-    --enemy-size: 60px;
-    width: 60px;
-    height: 60px;
+    --enemy-size: 65px;
+    width: 65px;
+    height: 65px;
     /* background-color: #82c767; */
     background-size: cover;
     background-image: url('/images/enemies/enemy1.png');
 }
 
 #enemy2 {
-    --enemy-size: 65px;
-    width: 65px;
-    height: 65px;
+    --enemy-size: 80px;
+    width: 80px;
+    height: 80px;
     background-size: cover;
     /* background-color: #42bcc0; */
     background-image: url('/images/enemies/enemy2.png');
 }
 
 #enemy3 {
-    --enemy-size: 80px;
-    width: 80px;
-    height: 80px;
+    --enemy-size: 90px;
+    width: 90px;
+    height: 90px;
     background-size: cover;
     /* background-color: #c72a2a; */
     background-image: url('/images/enemies/enemy3.png');
@@ -112,17 +112,17 @@ body {
 
 #boss2 {
     --boss-size: 150px;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 
     background-size: cover;
     background-image: url('/images/bosses/ancientDemon.png');
 }
 
 #boss3 {
-    --boss-size: 300px;
-    width: 300px;
-    height: 300px;
+    --boss-size: 350px;
+    width: 350px;
+    height: 350px;
 
     background-size: cover;
     background-image: url('/images/bosses/dimensionDestroyer.png');
