@@ -1,5 +1,6 @@
 import Enemy from '/classes/Enemy.js';
 import Shop from "/classes/Shop.js";
+import Round from '/classes/Round.js'
 
 class Construction {
     static towers = [];
@@ -8,7 +9,7 @@ class Construction {
         this.element = document.createElement('div');
         this.element.classList.add('tower');
 
-        const towerSize = 50;
+        const towerSize = 100;
         this.element.style.width = `${towerSize}px`;
         this.element.style.height = `${towerSize}px`;
 
@@ -16,7 +17,7 @@ class Construction {
         this.element.style.top = `${y - towerSize / 2}px`;
 
         this.collisions = 0;
-        this.maxCollisions = 10;
+        this.maxCollisions = Round.currentRound * 10;
 
         const gameContainer = document.getElementById('gameContainer');
         gameContainer.appendChild(this.element);

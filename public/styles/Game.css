@@ -19,7 +19,6 @@ body {
     width: 100vw;
 
     background-image: url('/images/gameBackground.jpg');
-    background-size: cover;
 }
 
 #gameContainer {
