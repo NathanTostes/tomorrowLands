@@ -51,7 +51,7 @@ class Round {
         alert.id = "final-round-alert";
         gameContainer.appendChild(alert);
         
-        if (Round.currentRound == 1) {
+        if (Round.currentRound == 19) {
             setTimeout(() => FinalScreen.initFinalScreen())
         }else{
             setTimeout(() => Shop.initShop(), 1500);
