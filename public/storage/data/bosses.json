@@ -1,7 +1,7 @@
 [
     {
         "type": "boss1",
-        "velocity": 8,
+        "velocity": 6,
         "life": 1,
         "gold": 20,
         "damage": 25
