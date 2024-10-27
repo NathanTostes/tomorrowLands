@@ -57,7 +57,6 @@ class FinalScreen{
     static createText(){
         this.text = document.createElement('p')
         this.text.id = 'text-finalScreen'
-        this.text.innerHTML = text
         this.div.appendChild(this.text)
     }
 
