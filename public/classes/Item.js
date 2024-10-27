@@ -1,6 +1,5 @@
 import Player from "/classes/Player.js";
 import Construction from "/classes/Construction.js";
-import Shop from "/classes/Shop.js";
 
 class Item {
     constructor(name, value, description, effect, image) {

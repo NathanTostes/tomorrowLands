@@ -83,7 +83,7 @@ class Boss {
         Enemy.defeatEnemies++;
         document.getElementById('enemies-counter').textContent = `Inimigos derrotados: ${Enemy.defeatEnemies}`;
         Round.checkAliveEnemies();
-        Player.obtainGold(this.goldValue);
+        Player.obtainGold(Math.round(this.goldValue * Round.currentRound / 2));
     }
 
     moveToPlayer(playerDirection) {
