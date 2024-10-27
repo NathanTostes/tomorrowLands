@@ -16,21 +16,21 @@
     {
         "type": "enemy3",
         "velocity": 2,
-        "life": 4,
+        "life": 3,
         "gold": 1,
         "spawn": 3
     },
     {
         "type": "enemy4",
         "velocity": 1,
-        "life": 6,
+        "life": 4,
         "gold": 2,
         "spawn": 2
     },
     {
         "type": "enemy5",
         "velocity": 0.5,
-        "life": 8,
+        "life": 5,
         "gold": 4,
         "spawn": 1
     }

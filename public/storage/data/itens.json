@@ -1,7 +1,7 @@
 [
     {
         "name": "Poder",
-        "value": 2,
+        "value": 4,
         "description": "Melhora o ataque",
         "effect": "improveAtack",
         "image": "/images/itens/força.png"
@@ -17,7 +17,7 @@
     },
     {
         "name": "Void", 
-        "value": 20,
+        "value": 25,
         "description": "Constroi uma defesa", 
         "effect": "construct",
         "image": "/images/itens/void.png"
@@ -25,7 +25,7 @@
     },
     {
         "name": "Zero Absoluto",   
-        "value": 25,
+        "value": 50,
         "description": "Paralisa os inimigos. Pressione espaço para usar",
         "effect": "purshaseFrozen",
         "image": "/images/itens/gelo.png"

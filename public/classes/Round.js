@@ -30,7 +30,7 @@ class Round {
                 Enemy.spawnEnemy(Round.currentRound);   
                 
                 Round.spawnedEnemies++;
-            }, (i * 1000) / (1 + Round.currentRound * 0.2));
+            }, (i * 1000) / (0.5 + Round.currentRound * 0.05));
         }
     }
         

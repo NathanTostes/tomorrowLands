@@ -47,7 +47,7 @@ class Player {
 
     static purshasekazakhstanBomb(){
         Player.kazakhstanBomb += 1
-        document.getElementById('playerBomb-counter').textContent = `Descarga: ${Player.kazakhstanBomb}`
+        document.getElementById('playerBomb-counter').textContent = `Sobrecarga: ${Player.kazakhstanBomb}`
         Shop.refresh()
     }
     
