@@ -16,7 +16,7 @@ class Round {
         Round.occurring = true;
         Round.spawnedEnemies = 0;
         Round.roundEnemies = Round.currentRound * 10;
-        Round.roundBosses = 1 + Math.floor(Round.currentRound * 0.1);
+        Round.roundBosses = 1 + Math.floor(Round.currentRound * 0.2);
 
         this.spawnRoundEnemies();
     }
@@ -32,7 +32,7 @@ class Round {
                 Enemy.spawnEnemy(Round.currentRound);   
                 
                 Round.spawnedEnemies++;
-            }, (i * 1000) / (0.5 + Round.currentRound * 0.05));
+            }, (i * 1000) / (0.5 + Round.currentRound * 0.1));
         }
     }
         
