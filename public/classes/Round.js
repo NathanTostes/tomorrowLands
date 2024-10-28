@@ -1,6 +1,8 @@
 import Enemy from '/classes/Enemy.js';
 import Boss from "/classes/Boss.js";
 import Shop from '/classes/Shop.js';
+import FinalScreen from '/classes/Final.js'
+
 
 
 class Round {
@@ -48,7 +50,12 @@ class Round {
         alert.innerHTML = `Rodada ${Round.currentRound} finalizada`;
         alert.id = "final-round-alert";
         gameContainer.appendChild(alert);
-        setTimeout(() => Shop.initShop(), 1500);
+        
+        if (Round.currentRound == 19) {
+            setTimeout(() => FinalScreen.initFinalScreen())
+        }else{
+            setTimeout(() => Shop.initShop(), 1500);
+        }
     }
 
     static nextRound() {
